@@ -209,7 +209,8 @@ def cmd_track(args):
         shown = [r for r in rows if args.all or r["status"] not in CLOSED]
         shown.sort(key=lambda r: r["deadline"] or "9999")
         for r in shown:
-            print(f"{r['deadline'] or '—':<10}  {r['status']:<10}  {r['program']}  ({r['org']})")
+            org = f"  ({r['org']})" if r["org"] else ""
+            print(f"{r['deadline'] or '—':<10}  {r['status']:<10}  {r['program']}{org}")
         print(f"({len(shown)} of {len(rows)} rows)", file=sys.stderr)
         return 0
 
