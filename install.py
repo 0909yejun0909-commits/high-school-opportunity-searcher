@@ -6,13 +6,19 @@ folder, which stays the one home for your profile, tracker and applications.
 Edits to the workspace take effect immediately; re-run this only if you move
 the folder.
 
-  python3 install.py              install / refresh
-  python3 install.py --uninstall  remove the global skills and agents
-  python3 install.py --dry-run    show what would be written
+It also pre-approves what the commands need in ~/.claude/settings.json (this
+folder's scripts, file access inside this folder, web search/fetch, the
+/opp-* skills) so Claude Code doesn't stop to ask each time.
+
+  python3 install.py                   install / refresh
+  python3 install.py --no-permissions  install, but keep asking before each action
+  python3 install.py --uninstall       remove the global skills, agents and permissions
+  python3 install.py --dry-run         show what would be written
 """
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
 from pathlib import Path
@@ -57,9 +63,12 @@ This is the global entry point to the High School Opportunity Searcher workspace
 1. Read `{HOME}/CLAUDE.md` (ground rules - always apply them), then read
    `{HOME}/.claude/commands/{cmd}.md` and follow it with these arguments: $ARGUMENTS
 2. **Paths:** every relative path in the workspace files (`tools/`, `data/`, `applications/`,
-   `documents/`, `.claude/...`, `CLAUDE.md`) means `{HOME}/<path>`. Run tools as
-   `python3 {HOME}/tools/<tool>.py ...`. Write every file under `{HOME}`, never in the
-   current working directory.
+   `documents/`, `.claude/...`, `CLAUDE.md`) means `{HOME}/<path>`. Write every file under
+   `{HOME}`, never in the current working directory.
+   **Pre-approved actions only, so the student is never interrupted:** run each tool as its own
+   command, exactly `python3 {HOME}/tools/<tool>.py ...` - no `cd` first, no chaining with
+   `&&`, `;` or `|` into other programs (a heredoc for `posting_guard.py` is fine). Read files
+   with the Read/Glob/Grep tools, not `cat`, `ls` or `head`. Every tool supports `--help`.
 3. **Names:** the workspace files refer to commands by their short names: {others}.
    Agents `opportunity-fetcher` and `opportunity-reviewer` are installed globally.
 """
@@ -84,11 +93,59 @@ def owned(path: Path) -> bool:
     return path.exists() and MARKER in path.read_text(encoding="utf-8")
 
 
+def permission_rules() -> list[str]:
+    """What the commands need so Claude Code doesn't stop to ask each time:
+    this workspace's own scripts, file access inside this workspace only, web
+    search/fetch for checking program pages, and the /opp-* skills."""
+    rules = [f"Bash(python3 {HOME}/tools/{tool}.py:*)"
+             for tool in ("opps", "posting_guard", "fetch_page", "robots_check")]
+    # A leading // makes a file rule an absolute path (HOME already starts with /).
+    rules += [f"{verb}(/{HOME}/**)" for verb in ("Read", "Edit", "Write")]
+    rules += ["WebSearch", "WebFetch"]
+    rules += [f"Skill(opp-{cmd})" for cmd in COMMANDS]
+    return rules
+
+
+def update_permissions(uninstall: bool, dry_run: bool) -> None:
+    """Add (or remove) exactly our rules in ~/.claude/settings.json, keeping
+    everything else in the file as it is. A file we can't parse is left alone."""
+    path = CLAUDE / "settings.json"
+    try:
+        settings = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+    except json.JSONDecodeError:
+        print(f"skip permissions: {path} is not valid JSON, left unchanged")
+        return
+    if not isinstance(settings, dict):
+        print(f"skip permissions: {path} is not a JSON object, left unchanged")
+        return
+    perms = settings.setdefault("permissions", {})
+    allow = perms.setdefault("allow", [])
+    ours = permission_rules()
+    if uninstall:
+        changed = [r for r in allow if r in ours]
+        perms["allow"] = [r for r in allow if r not in ours]
+        verb = "remove"
+    else:
+        changed = [r for r in ours if r not in allow]
+        allow.extend(changed)
+        verb = "allow"
+    for rule in changed:
+        print(f"{'would ' + verb if dry_run else verb} permission: {rule}")
+    if changed and not dry_run:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(settings, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--uninstall", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--no-permissions", action="store_true",
+                    help="don't pre-approve anything; Claude Code will ask each time")
     args = ap.parse_args(argv)
+
+    if not args.no_permissions or args.uninstall:
+        update_permissions(args.uninstall, args.dry_run)
 
     for path, content in targets().items():
         if path.exists() and not owned(path):

@@ -46,9 +46,10 @@ search again.
   To make the change permanent, run `/opp-setup` again.
 - **Ask why.** "Why is this a reach?" or "Why did you mark me not eligible?" It will quote the
   rule from the program's website.
-- **Approving actions.** Claude Code asks permission before running a helper script or saving a
-  file. Choose **"Yes, and don't ask again"** for the project's own tools (`tools/opps.py` etc.)
-  to cut down on the prompts.
+- **No permission pop-ups.** If you installed with `install.py`, everything the commands need is
+  pre-approved: the project's scripts, files inside the project folder, web search, and checking
+  program websites. You won't be interrupted. (Used `--no-permissions`, or running inside the
+  folder without installing? Then choose **"Yes, and don't ask again"** when asked.)
 - **It will never** submit an application, send an email, or fill in a website form. When
   something is ready, it tells you what to do next.
 
@@ -410,8 +411,11 @@ Your profile is missing or still has blanks in the Basics section (grade, age, l
 citizenship). Eligibility can't be checked without them. Run `/opp-setup`.
 
 **It keeps asking for permission.**
-That's Claude Code being careful. For the project's own tools, choose **"Yes, and don't ask
-again."** You can review those settings in the app later.
+Run `python3 ~/high-school-opportunity-searcher/install.py` again (without `--no-permissions`).
+It pre-approves the project's own scripts, files inside the project folder, and web search/fetch,
+and nothing else. Anything outside that, such as a file in another folder, will still ask,
+on purpose. If you moved the project folder, re-run the installer so the approvals point to the
+new location.
 
 **"Couldn't verify" or "blocked" on a program.**
 Some sites block automated reading. Open the official link yourself and check the deadline and

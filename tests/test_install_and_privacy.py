@@ -6,6 +6,7 @@ blank, and the filled-in copies must be git-ignored.
 """
 import contextlib
 import io
+import json
 import subprocess
 import sys
 import tempfile
@@ -81,6 +82,56 @@ class Install(unittest.TestCase):
     def test_dry_run_writes_nothing(self):
         self.run_install("--dry-run")
         self.assertFalse(install.CLAUDE.exists())
+
+    # -- permissions in ~/.claude/settings.json
+
+    def settings(self):
+        return json.loads((install.CLAUDE / "settings.json").read_text())
+
+    def write_settings(self, data):
+        install.CLAUDE.mkdir(parents=True, exist_ok=True)
+        (install.CLAUDE / "settings.json").write_text(json.dumps(data))
+
+    def test_install_adds_scoped_permissions_and_keeps_existing_settings(self):
+        self.write_settings({"theme": "dark", "permissions": {"allow": ["mcp__other"], "deny": ["Bash(rm:*)"]}})
+        self.run_install()
+        s = self.settings()
+        self.assertEqual(s["theme"], "dark")
+        self.assertEqual(s["permissions"]["deny"], ["Bash(rm:*)"])
+        allow = s["permissions"]["allow"]
+        self.assertEqual(allow[0], "mcp__other")
+        self.assertIn(f"Bash(python3 {install.HOME}/tools/opps.py:*)", allow)
+        self.assertIn(f"Write(/{install.HOME}/**)", allow)
+        self.assertIn("Skill(opp-search)", allow)
+        # file rules are absolute (//...) and limited to the workspace
+        for rule in allow:
+            if rule.startswith(("Read(", "Edit(", "Write(")):
+                self.assertTrue(rule.startswith(("Read(//", "Edit(//", "Write(//")), rule)
+                self.assertIn(str(install.HOME), rule)
+        self.assertFalse([r for r in allow if r.startswith("Bash(") and str(install.HOME) not in r])
+
+    def test_install_twice_does_not_duplicate(self):
+        self.run_install()
+        self.run_install()
+        allow = self.settings()["permissions"]["allow"]
+        self.assertEqual(len(allow), len(set(allow)))
+
+    def test_uninstall_removes_only_our_permissions(self):
+        self.write_settings({"permissions": {"allow": ["mcp__other"]}})
+        self.run_install()
+        self.run_install("--uninstall")
+        self.assertEqual(self.settings()["permissions"]["allow"], ["mcp__other"])
+
+    def test_no_permissions_flag(self):
+        self.run_install("--no-permissions")
+        self.assertFalse((install.CLAUDE / "settings.json").exists())
+
+    def test_invalid_settings_left_untouched(self):
+        install.CLAUDE.mkdir(parents=True)
+        (install.CLAUDE / "settings.json").write_text("{not json")
+        _, out = self.run_install()
+        self.assertIn("left unchanged", out)
+        self.assertEqual((install.CLAUDE / "settings.json").read_text(), "{not json")
 
 
 class Privacy(unittest.TestCase):

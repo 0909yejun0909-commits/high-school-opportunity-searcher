@@ -85,13 +85,19 @@ come back for them.
 # 1. Download it to a permanent place. Your profile and applications will live here.
 git clone https://github.com/0909yejun0909-commits/high-school-opportunity-searcher.git ~/high-school-opportunity-searcher
 
-# 2. Make the commands work from any folder (recommended)
+# 2. Make the commands work from any folder, with no permission pop-ups (recommended)
 python3 ~/high-school-opportunity-searcher/install.py
 
 # 3. Start Claude Code anywhere and set up your profile
 claude
 ```
 Then type **`/opp-setup`** inside Claude Code. That's it.
+
+> **No permission pop-ups:** the installer pre-approves exactly what the commands need: the
+> project's own scripts, reading and writing files *inside the project folder only*, web search
+> and fetch (to check program websites), and the `/opp-` commands. Nothing else is approved, and
+> your other Claude Code settings are kept. Prefer to approve each action yourself? Use
+> `install.py --no-permissions`. `install.py --uninstall` removes everything it added.
 
 > Skipped step 2? Open Claude Code *inside* the folder (`cd ~/high-school-opportunity-searcher && claude`)
 > and use the short names (`/setup`, `/search`, `/apply`, ...). Everything else is the same.
@@ -211,7 +217,7 @@ the budget, travel and "which ones should I apply to" parts.
 ```
 CLAUDE.md                              ground rules Claude follows (safety, honesty, essays)
 docs/GUIDE.md                          how to use every command
-install.py                             adds the /opp-* commands to every folder
+install.py                             adds the /opp-* commands to every folder and pre-approves their permissions
 .claude/commands/                      the commands: setup, search, apply, deadlines, outreach, outcome, interview
 .claude/skills/opportunity-search/     search workflow, where to look, your saved queries
 .claude/skills/opportunity-assistant/  profile template, evaluation framework, writing guide

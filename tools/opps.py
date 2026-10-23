@@ -394,8 +394,11 @@ def cmd_deadlines(args):
             where = p.get("host_country", "?")
             print(f"~{MONTHS[p['deadline_month']]}  {p['name']}  [{where}]  ({p['cost']}, grades {p['grades']})  {p['url']}")
     if args.ics:
-        write_ics([i for i in items if i[0] >= 0], Path(args.ics))
-        print(f"\nwrote {args.ics}")
+        # Relative paths land in the workspace, not wherever the command was run from
+        # (the global /opp-* commands run in any folder).
+        ics = Path(args.ics) if Path(args.ics).is_absolute() else ROOT / args.ics
+        write_ics([i for i in items if i[0] >= 0], ics)
+        print(f"\nwrote {ics}")
     return 0
 
 
@@ -430,7 +433,7 @@ def main(argv=None):
 
     s = sub.add_parser("deadlines")
     s.add_argument("--days", type=int, default=60)
-    s.add_argument("--ics", help="also write upcoming tracker deadlines to this .ics file")
+    s.add_argument("--ics", help="also write upcoming tracker deadlines to this .ics file (relative paths are inside the workspace)")
     s.add_argument("--no-seed", action="store_true")
     s.add_argument("--home", help="only suggest seed programs a student living here may apply to")
     s.set_defaults(func=cmd_deadlines)

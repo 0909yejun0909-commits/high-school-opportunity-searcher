@@ -226,6 +226,24 @@ class Deadlines(TempData):
         heads = opps.seed_heads_up(programs, set(), set(), 40, ref)
         self.assertEqual([p["name"] for p in heads], ["Dec", "Jan"])
 
+    def test_relative_ics_lands_in_workspace_not_cwd(self):
+        import os
+        root = Path(self.tmp.name) / "ws"
+        root.mkdir()
+        elsewhere = Path(self.tmp.name) / "elsewhere"
+        elsewhere.mkdir()
+        saved_root, saved_cwd = opps.ROOT, os.getcwd()
+        opps.ROOT = root
+        try:
+            os.chdir(elsewhere)
+            code, out, _ = run("deadlines", "--no-seed", "--ics", "deadlines.ics")
+        finally:
+            os.chdir(saved_cwd)
+            opps.ROOT = saved_root
+        self.assertEqual(code, 0)
+        self.assertTrue((root / "deadlines.ics").exists())
+        self.assertFalse((elsewhere / "deadlines.ics").exists())
+
     def test_ics_output(self):
         ics = Path(self.tmp.name) / "d.ics"
         items = [(5, dt.date(2026, 11, 1), {"program": "Navy SEAP, 2027", "url": "https://x.org", "notes": ""})]
