@@ -50,7 +50,7 @@ description: {description}
 {hint_line}---
 {MARKER}
 
-This is the global entry point to the High School Opportunity Search workspace at
+This is the global entry point to the High School Opportunity Searcher workspace at
 `{HOME}`. The current working directory is unrelated to it.
 
 1. Read `{HOME}/CLAUDE.md` (ground rules - always apply them), then read

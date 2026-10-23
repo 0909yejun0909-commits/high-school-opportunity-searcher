@@ -1,4 +1,4 @@
-# High School Opportunity Search
+# High School Opportunity Searcher
 
 *Find internships, research opportunities, and summer programs, then actually apply to them.*
 
@@ -31,12 +31,12 @@ Your profile   Seed list + web search   Eligibility gates + fit score
 
 **1. Clone it** somewhere permanent. Your profile and applications will live in this folder.
 ```bash
-git clone https://github.com/0909yejun0909-commits/hs-opportunity-search.git ~/hs-opportunity-search
+git clone https://github.com/0909yejun0909-commits/high-school-opportunity-searcher.git ~/high-school-opportunity-searcher
 ```
 
 **2. Make the commands work in every folder** (optional, recommended):
 ```bash
-python3 ~/hs-opportunity-search/install.py
+python3 ~/high-school-opportunity-searcher/install.py
 ```
 This adds `/opp-setup`, `/opp-search`, `/opp-apply`, `/opp-deadlines`, `/opp-outreach`,
 `/opp-outcome` and `/opp-interview` to Claude Code everywhere (in `~/.claude/skills/` and
@@ -55,7 +55,7 @@ programs") also works. Re-run the installer if you move the folder;
 Skipped step 2? Run `claude` inside the cloned folder and use the short names: `/setup`,
 `/search`, `/apply`, `/deadlines`, ...
 
-**Updating:** `git -C ~/hs-opportunity-search pull`. Your profile, tracker, documents and
+**Updating:** `git -C ~/high-school-opportunity-searcher pull`. Your profile, tracker, documents and
 applications are git-ignored, so pulling never overwrites them, and they never get committed if
 you push changes to a fork.
 

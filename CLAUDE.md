@@ -1,4 +1,4 @@
-# High School Opportunity Search
+# High School Opportunity Searcher
 
 This repo is a workspace for one high school student's search for **internships, research
 opportunities, and summer programs**. Claude acts as a counselor-style assistant: it finds
