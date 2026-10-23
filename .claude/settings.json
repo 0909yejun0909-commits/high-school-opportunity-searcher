@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(opportunity-assistant)",
+      "Skill(opportunity-search)",
+      "Bash(python3 tools/opps.py:*)",
+      "Bash(python tools/opps.py:*)",
+      "Bash(python3 tools/posting_guard.py:*)",
+      "Bash(python3 tools/fetch_page.py:*)",
+      "Bash(python3 tools/robots_check.py:*)",
+      "WebSearch",
+      "WebFetch"
+    ],
+    "ask": [
+      "Edit(.claude/settings.json)",
+      "Edit(.claude/commands/*.md)",
+      "Edit(.claude/agents/**)",
+      "Bash(git push:*)"
+    ]
+  }
+}

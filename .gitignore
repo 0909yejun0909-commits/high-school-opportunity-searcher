@@ -1,0 +1,14 @@
+# Personal data - never commit
+documents/*
+!documents/README.md
+applications/*
+!applications/.gitkeep
+data/seen.json
+data/tracker.csv
+*.ics
+.claude/skills/opportunity-assistant/profile.md
+.claude/skills/opportunity-search/search-queries.md
+
+__pycache__/
+.DS_Store
+.claude/settings.local.json

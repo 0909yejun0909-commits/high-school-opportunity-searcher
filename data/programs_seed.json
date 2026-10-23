@@ -1,0 +1,913 @@
+{
+ "_about": "Curated starting list of well-known US high school programs. Deadlines, costs and eligibility change every cycle: treat every field as a lead and confirm it on the official page before acting (/search does this automatically). deadline_month is the usual month the main deadline falls in (1-12), used only for sorting and early warnings.",
+ "programs": [
+  {
+   "id": "rsi",
+   "name": "Research Science Institute (RSI)",
+   "org": "Center for Excellence in Education / MIT",
+   "category": "research",
+   "fields": [
+    "math",
+    "science",
+    "engineering"
+   ],
+   "url": "https://www.cee.org/programs/research-science-institute",
+   "grades": [
+    11
+   ],
+   "cost": "free",
+   "format": "residential",
+   "location": "Cambridge, MA",
+   "deadline_month": 12,
+   "selectivity": "extremely high",
+   "eligibility_notes": "Rising seniors; separate international nomination routes",
+   "notes": "6-week research internship; strong test scores and prior research help"
+  },
+  {
+   "id": "mit-primes",
+   "name": "MIT PRIMES",
+   "org": "MIT Department of Mathematics",
+   "category": "research",
+   "fields": [
+    "math",
+    "computer science",
+    "computational biology"
+   ],
+   "url": "https://math.mit.edu/research/highschool/primes/",
+   "grades": [
+    9,
+    10,
+    11
+   ],
+   "cost": "free",
+   "format": "year-long (local or online)",
+   "location": "Boston area; PRIMES-USA is remote",
+   "deadline_month": 12,
+   "selectivity": "extremely high",
+   "eligibility_notes": "Main program for Boston-area students; PRIMES-USA for others (math)",
+   "notes": "Application includes a problem set"
+  },
+  {
+   "id": "ssp",
+   "name": "Summer Science Program (SSP)",
+   "org": "Summer Science Program",
+   "category": "summer_program",
+   "fields": [
+    "astrophysics",
+    "biochemistry",
+    "genomics"
+   ],
+   "url": "https://summerscience.org",
+   "grades": [
+    11
+   ],
+   "cost": "paid_with_aid",
+   "format": "residential",
+   "location": "Multiple US campuses",
+   "deadline_month": 2,
+   "selectivity": "high",
+   "eligibility_notes": "Open only to juniors at time of applying; need-blind, meets full need",
+   "notes": "Team research project in 5-6 weeks"
+  },
+  {
+   "id": "simons-sb",
+   "name": "Simons Summer Research Program",
+   "org": "Stony Brook University",
+   "category": "research",
+   "fields": [
+    "science",
+    "math",
+    "engineering"
+   ],
+   "url": "https://www.stonybrook.edu/simons/",
+   "grades": [
+    11
+   ],
+   "cost": "stipend",
+   "format": "in-person",
+   "location": "Stony Brook, NY",
+   "deadline_month": 2,
+   "selectivity": "very high",
+   "eligibility_notes": "Rising seniors; US citizens or permanent residents",
+   "notes": "Students join a faculty lab for ~7 weeks"
+  },
+  {
+   "id": "garcia",
+   "name": "Garcia Summer Research Program",
+   "org": "Stony Brook University",
+   "category": "research",
+   "fields": [
+    "materials science",
+    "polymers",
+    "engineering"
+   ],
+   "url": "https://www.stonybrook.edu/commcms/garcia/summer_program/",
+   "grades": [
+    10,
+    11
+   ],
+   "cost": "paid",
+   "format": "in-person",
+   "location": "Stony Brook, NY",
+   "deadline_month": 2,
+   "selectivity": "high",
+   "eligibility_notes": "Lab fee plus housing; states it cannot offer financial aid",
+   "notes": "Students work toward a research paper/competition entry"
+  },
+  {
+   "id": "mites",
+   "name": "MITES Summer",
+   "org": "MIT",
+   "category": "summer_program",
+   "fields": [
+    "science",
+    "engineering"
+   ],
+   "url": "https://mites.mit.edu",
+   "grades": [
+    11
+   ],
+   "cost": "free",
+   "format": "residential",
+   "location": "Cambridge, MA",
+   "deadline_month": 2,
+   "selectivity": "very high",
+   "eligibility_notes": "Rising seniors; US citizens/permanent residents; focus on students from underrepresented and underserved communities",
+   "notes": "Also MITES Semester (online) for juniors"
+  },
+  {
+   "id": "clark",
+   "name": "Clark Scholars Program",
+   "org": "Texas Tech University",
+   "category": "research",
+   "fields": [
+    "science",
+    "engineering",
+    "humanities",
+    "business"
+   ],
+   "url": "https://www.depts.ttu.edu/clarkscholars/",
+   "grades": [
+    11,
+    12
+   ],
+   "cost": "stipend",
+   "format": "residential",
+   "location": "Lubbock, TX",
+   "deadline_month": 2,
+   "selectivity": "very high",
+   "eligibility_notes": "Rising seniors (recent cycles also allowed recent graduates); age 17 by program start",
+   "notes": "7-week research in any academic area; no fees, room/board plus stipend; small application fee"
+  },
+  {
+   "id": "tass",
+   "name": "Telluride Association Summer Seminar (TASS)",
+   "org": "Telluride Association",
+   "category": "summer_program",
+   "fields": [
+    "humanities",
+    "social sciences",
+    "critical race studies"
+   ],
+   "url": "https://www.tellurideassociation.org",
+   "grades": [
+    10,
+    11
+   ],
+   "cost": "free",
+   "format": "residential",
+   "location": "Varies by year",
+   "deadline_month": 1,
+   "selectivity": "very high",
+   "eligibility_notes": "Sophomores and juniors",
+   "notes": "Free, includes travel aid; essay-heavy application"
+  },
+  {
+   "id": "bu-rise",
+   "name": "BU RISE Internship/Practicum",
+   "org": "Boston University",
+   "category": "research",
+   "fields": [
+    "science",
+    "engineering",
+    "medicine"
+   ],
+   "url": "https://www.bu.edu/summer/high-school-programs/rise-internship-practicum/",
+   "grades": [
+    11
+   ],
+   "cost": "paid_with_aid",
+   "format": "residential or commuter",
+   "location": "Boston, MA",
+   "deadline_month": 2,
+   "selectivity": "high",
+   "eligibility_notes": "Rising seniors",
+   "notes": "6-week lab internship; tuition with need-based aid"
+  },
+  {
+   "id": "jax-ssp",
+   "name": "JAX Summer Student Program",
+   "org": "The Jackson Laboratory",
+   "category": "research",
+   "fields": [
+    "genetics",
+    "genomics",
+    "biology"
+   ],
+   "url": "https://www.jax.org/education-and-learning/high-school-students-and-undergraduates",
+   "grades": [
+    11
+   ],
+   "cost": "stipend",
+   "format": "residential",
+   "location": "Bar Harbor, ME / Farmington, CT",
+   "deadline_month": 2,
+   "selectivity": "very high",
+   "eligibility_notes": "No longer accepting high school seniors (2026 page); check age minimum",
+   "notes": "10-week independent research project; room, board and stipend"
+  },
+  {
+   "id": "nih-hs-sip",
+   "name": "NIH High School Summer Internship Program (HS-SIP)",
+   "org": "National Institutes of Health",
+   "category": "internship",
+   "fields": [
+    "biomedical research"
+   ],
+   "url": "https://www.training.nih.gov/research-training/hs/",
+   "grades": [
+    11,
+    12
+   ],
+   "cost": "stipend",
+   "format": "in-person",
+   "location": "NIH campuses (Bethesda, MD and others)",
+   "deadline_month": 2,
+   "selectivity": "high",
+   "eligibility_notes": "Age 17+ by start; US citizens/permanent residents; must live within a commuting distance of the campus",
+   "notes": "Funding and program status has changed in recent years - verify current cycle"
+  },
+  {
+   "id": "simr",
+   "name": "Stanford Institutes of Medicine Summer Research Program (SIMR)",
+   "org": "Stanford Medicine",
+   "category": "research",
+   "fields": [
+    "medicine",
+    "immunology",
+    "neuroscience",
+    "bioinformatics"
+   ],
+   "url": "https://simr.stanford.edu",
+   "grades": [
+    11,
+    12
+   ],
+   "cost": "stipend",
+   "format": "in-person",
+   "location": "Stanford, CA",
+   "deadline_month": 2,
+   "selectivity": "very high",
+   "eligibility_notes": "Age 16+; US citizens/permanent residents; local commuters",
+   "notes": "8-week lab placement"
+  },
+  {
+   "id": "cosmos",
+   "name": "COSMOS",
+   "org": "University of California",
+   "category": "summer_program",
+   "fields": [
+    "science",
+    "math",
+    "engineering"
+   ],
+   "url": "https://cosmos-ucop.ucdavis.edu",
+   "grades": [
+    8,
+    9,
+    10,
+    11,
+    12
+   ],
+   "cost": "paid_with_aid",
+   "format": "residential",
+   "location": "UC campuses, CA",
+   "deadline_month": 2,
+   "selectivity": "high",
+   "eligibility_notes": "Primarily California students",
+   "notes": "4-week cluster courses"
+  },
+  {
+   "id": "ross",
+   "name": "Ross Mathematics Program",
+   "org": "Ross Program",
+   "category": "math",
+   "fields": [
+    "math"
+   ],
+   "url": "https://rossprogram.org",
+   "grades": [
+    9,
+    10,
+    11,
+    12
+   ],
+   "cost": "paid_with_aid",
+   "format": "residential",
+   "location": "Columbus, OH / Terre Haute, IN",
+   "deadline_month": 3,
+   "selectivity": "high",
+   "eligibility_notes": "Ages ~15-18",
+   "notes": "Application problems required; number theory focus"
+  },
+  {
+   "id": "promys",
+   "name": "PROMYS",
+   "org": "Boston University",
+   "category": "math",
+   "fields": [
+    "math"
+   ],
+   "url": "https://promys.org",
+   "grades": [
+    9,
+    10,
+    11,
+    12
+   ],
+   "cost": "paid_with_aid",
+   "format": "residential",
+   "location": "Boston, MA",
+   "deadline_month": 3,
+   "selectivity": "high",
+   "eligibility_notes": "Ages 14+",
+   "notes": "Free for many families via need-based aid; application problems"
+  },
+  {
+   "id": "mathcamp",
+   "name": "Canada/USA Mathcamp",
+   "org": "Mathcamp",
+   "category": "math",
+   "fields": [
+    "math"
+   ],
+   "url": "https://www.mathcamp.org",
+   "grades": [
+    8,
+    9,
+    10,
+    11,
+    12
+   ],
+   "cost": "paid_with_aid",
+   "format": "residential",
+   "location": "Varies by year",
+   "deadline_month": 3,
+   "selectivity": "high",
+   "eligibility_notes": "Ages 13-18",
+   "notes": "Qualifying Quiz is the main application"
+  },
+  {
+   "id": "hcssim",
+   "name": "Hampshire College Summer Studies in Mathematics (HCSSiM)",
+   "org": "HCSSiM",
+   "category": "math",
+   "fields": [
+    "math"
+   ],
+   "url": "https://hcssim.org",
+   "grades": [
+    9,
+    10,
+    11,
+    12
+   ],
+   "cost": "paid_with_aid",
+   "format": "residential",
+   "location": "Amherst, MA",
+   "deadline_month": 4,
+   "selectivity": "high",
+   "eligibility_notes": "High school students",
+   "notes": "Application problems"
+  },
+  {
+   "id": "sumac",
+   "name": "Stanford University Mathematics Camp (SUMaC)",
+   "org": "Stanford Pre-Collegiate Studies",
+   "category": "math",
+   "fields": [
+    "math"
+   ],
+   "url": "https://spcs.stanford.edu/programs/stanford-university-mathematics-camp-sumac",
+   "grades": [
+    10,
+    11
+   ],
+   "cost": "paid_with_aid",
+   "format": "residential or online",
+   "location": "Stanford, CA / online",
+   "deadline_month": 2,
+   "selectivity": "high",
+   "eligibility_notes": "Current 10th-11th graders aged 15-17 on the first day",
+   "notes": "Admission test plus application"
+  },
+  {
+   "id": "yygs",
+   "name": "Yale Young Global Scholars (YYGS)",
+   "org": "Yale University",
+   "category": "summer_program",
+   "fields": [
+    "international affairs",
+    "politics",
+    "science",
+    "humanities"
+   ],
+   "url": "https://globalscholars.yale.edu",
+   "grades": [
+    10,
+    11
+   ],
+   "cost": "paid_with_aid",
+   "format": "residential",
+   "location": "New Haven, CT",
+   "deadline_month": 1,
+   "selectivity": "high",
+   "eligibility_notes": "Domestic and international students; early and regular rounds",
+   "notes": "Generous need-based aid"
+  },
+  {
+   "id": "bwsi",
+   "name": "MIT Beaver Works Summer Institute (BWSI)",
+   "org": "MIT Lincoln Laboratory",
+   "category": "summer_program",
+   "fields": [
+    "engineering",
+    "robotics",
+    "AI",
+    "remote sensing"
+   ],
+   "url": "https://beaverworks.ll.mit.edu/CMS/bw/bwsi",
+   "grades": [
+    11
+   ],
+   "cost": "free",
+   "format": "in-person or remote",
+   "location": "Cambridge, MA / remote",
+   "deadline_month": 3,
+   "selectivity": "high",
+   "eligibility_notes": "Rising seniors; US citizens/permanent residents for most courses",
+   "notes": "Requires finishing an online prerequisite course before acceptance"
+  },
+  {
+   "id": "boa-student-leaders",
+   "name": "Bank of America Student Leaders",
+   "org": "Bank of America",
+   "category": "internship",
+   "fields": [
+    "community service",
+    "leadership",
+    "nonprofit"
+   ],
+   "url": "https://about.bankofamerica.com/en/making-an-impact/student-leaders",
+   "grades": [
+    11,
+    12
+   ],
+   "cost": "stipend",
+   "format": "local + summit",
+   "location": "Participating US cities",
+   "deadline_month": 1,
+   "selectivity": "high",
+   "eligibility_notes": "Juniors/seniors in eligible markets; legally able to work in the US",
+   "notes": "Paid summer internship at a local nonprofit"
+  },
+  {
+   "id": "nasa-ostem",
+   "name": "NASA OSTEM Internships (high school)",
+   "org": "NASA",
+   "category": "internship",
+   "fields": [
+    "engineering",
+    "science",
+    "computer science",
+    "communications"
+   ],
+   "url": "https://intern.nasa.gov",
+   "grades": [
+    12
+   ],
+   "cost": "stipend",
+   "format": "in-person or virtual",
+   "location": "NASA centers",
+   "deadline_month": 2,
+   "selectivity": "high",
+   "eligibility_notes": "As of Oct 2026 the page requires age 18+ and a high school diploma - effectively graduating seniors; US citizens",
+   "notes": "Summer, fall and spring sessions each have their own deadline"
+  },
+  {
+   "id": "navy-seap",
+   "name": "Navy Science & Engineering Apprenticeship Program (SEAP)",
+   "org": "US Navy / ASEE",
+   "category": "internship",
+   "fields": [
+    "engineering",
+    "science"
+   ],
+   "url": "https://www.navalsteminterns.us/internships/seap/",
+   "grades": [
+    9,
+    10,
+    11,
+    12
+   ],
+   "cost": "stipend",
+   "format": "in-person",
+   "location": "Navy labs nationwide",
+   "deadline_month": 11,
+   "selectivity": "high",
+   "eligibility_notes": "US citizens; age 16+; within commuting distance of a lab",
+   "notes": "Window usually opens ~Aug; the 2027-summer cycle closes Nov 30, 2026 (verified Oct 2026). 8 weeks, ~$4,000 stipend, no housing - must live near a participating lab"
+  },
+  {
+   "id": "aeop",
+   "name": "Army Educational Outreach Program (AEOP) apprenticeships",
+   "org": "US Army",
+   "category": "internship",
+   "fields": [
+    "science",
+    "engineering"
+   ],
+   "url": "https://www.usaeop.com",
+   "grades": [
+    9,
+    10,
+    11,
+    12
+   ],
+   "cost": "stipend",
+   "format": "in-person",
+   "location": "Army and university labs nationwide",
+   "deadline_month": 2,
+   "selectivity": "moderate",
+   "eligibility_notes": "Varies by program (SEAP, HSAP, UNITE); many require US citizenship",
+   "notes": "UNITE is aimed at students underrepresented in STEM"
+  },
+  {
+   "id": "afrl-scholars",
+   "name": "AFRL Scholars Program",
+   "org": "Air Force Research Laboratory",
+   "category": "internship",
+   "fields": [
+    "engineering",
+    "science",
+    "computer science"
+   ],
+   "url": "https://afrlscholars.usra.edu",
+   "grades": [
+    11,
+    12
+   ],
+   "cost": "stipend",
+   "format": "in-person",
+   "location": "AFRL sites nationwide",
+   "deadline_month": 1,
+   "selectivity": "high",
+   "eligibility_notes": "US citizens; age 16+",
+   "notes": "Paid summer research"
+  },
+  {
+   "id": "nist-ship",
+   "name": "NIST Summer High School Intern Program (SHIP)",
+   "org": "NIST",
+   "category": "internship",
+   "fields": [
+    "physics",
+    "chemistry",
+    "engineering",
+    "computer science"
+   ],
+   "url": "https://www.nist.gov/careers/student-opportunities/summer-high-school-intern-program",
+   "grades": [
+    10,
+    11,
+    12
+   ],
+   "cost": "free",
+   "format": "in-person",
+   "location": "Gaithersburg, MD / Boulder, CO",
+   "deadline_month": 2,
+   "selectivity": "high",
+   "eligibility_notes": "US citizens; local commuters",
+   "notes": "Volunteer (unpaid) research internship"
+  },
+  {
+   "id": "rockefeller-ssrp",
+   "name": "Rockefeller University Summer Science Research Program (SSRP)",
+   "org": "Rockefeller University",
+   "category": "research",
+   "fields": [
+    "biology",
+    "biomedical research"
+   ],
+   "url": "https://www.rockefeller.edu/outreach/ssrp/",
+   "grades": [
+    11
+   ],
+   "cost": "check",
+   "format": "in-person",
+   "location": "New York, NY",
+   "deadline_month": 1,
+   "selectivity": "very high",
+   "eligibility_notes": "Sophomores not eligible; no housing provided (NYC commuters)",
+   "notes": "Lab research with mentors"
+  },
+  {
+   "id": "fred-hutch-ship",
+   "name": "Fred Hutch Summer High School Internship Program (SHIP)",
+   "org": "Fred Hutchinson Cancer Center",
+   "category": "research",
+   "fields": [
+    "cancer biology",
+    "biomedical research"
+   ],
+   "url": "https://www.fredhutch.org/en/education-training/high-school-students/summer-high-school-internship-program.html",
+   "grades": [
+    11
+   ],
+   "cost": "stipend",
+   "format": "in-person",
+   "location": "Seattle, WA",
+   "deadline_month": 2,
+   "selectivity": "high",
+   "eligibility_notes": "Rising seniors, 16+, living in the Greater Seattle area; no housing provided; aimed at students from backgrounds underrepresented in biomedical science",
+   "notes": "8-week paid lab internship; next cycle info usually posted in November"
+  },
+  {
+   "id": "broad-bssp",
+   "name": "Broad Summer Scholars Program (BSSP)",
+   "org": "Broad Institute of MIT and Harvard",
+   "category": "research",
+   "fields": [
+    "genomics",
+    "computational biology"
+   ],
+   "url": "https://www.broadinstitute.org/partnerships/education/broad-outreach-programs/broad-summer-scholars-program",
+   "grades": [
+    11
+   ],
+   "cost": "stipend",
+   "format": "in-person",
+   "location": "Cambridge, MA",
+   "deadline_month": 2,
+   "selectivity": "very high",
+   "eligibility_notes": "Boston-area high schools (check eligible list)",
+   "notes": "Paid research in a Broad lab"
+  },
+  {
+   "id": "hutton",
+   "name": "Hutton Junior Fisheries Biology Program",
+   "org": "American Fisheries Society",
+   "category": "internship",
+   "fields": [
+    "biology",
+    "ecology",
+    "environmental science"
+   ],
+   "url": "https://fisheries.org/hutton",
+   "grades": [
+    10,
+    11,
+    12
+   ],
+   "cost": "stipend",
+   "format": "in-person",
+   "location": "Placements nationwide",
+   "deadline_month": 1,
+   "selectivity": "moderate",
+   "eligibility_notes": "Age 16+",
+   "notes": "Paid summer mentorship with a fisheries professional"
+  },
+  {
+   "id": "cmu-sams",
+   "name": "CMU Summer Academy for Math and Science (SAMS)",
+   "org": "Carnegie Mellon University",
+   "category": "summer_program",
+   "fields": [
+    "math",
+    "science",
+    "engineering"
+   ],
+   "url": "https://www.cmu.edu/pre-college/academic-programs/sams.html",
+   "grades": [
+    10,
+    11
+   ],
+   "cost": "free",
+   "format": "residential",
+   "location": "Pittsburgh, PA",
+   "deadline_month": 2,
+   "selectivity": "high",
+   "eligibility_notes": "US citizens/permanent residents; focus on students underrepresented in STEM",
+   "notes": "Tuition-free"
+  },
+  {
+   "id": "cmu-ai-scholars",
+   "name": "CMU AI Scholars",
+   "org": "Carnegie Mellon University",
+   "category": "summer_program",
+   "fields": [
+    "AI",
+    "computer science"
+   ],
+   "url": "https://www.cmu.edu/pre-college/academic-programs/ai_scholars.html",
+   "grades": [
+    11
+   ],
+   "cost": "free",
+   "format": "residential",
+   "location": "Pittsburgh, PA",
+   "deadline_month": 2,
+   "selectivity": "very high",
+   "eligibility_notes": "Juniors at time of applying, 16+ by start; US citizens/permanent residents",
+   "notes": "Free (tuition, housing, meals); deadline usually early February"
+  },
+  {
+   "id": "psjp",
+   "name": "Princeton Summer Journalism Program",
+   "org": "Princeton University",
+   "category": "summer_program",
+   "fields": [
+    "journalism",
+    "writing"
+   ],
+   "url": "https://psjp.princeton.edu",
+   "grades": [
+    11
+   ],
+   "cost": "free",
+   "format": "residential + virtual",
+   "location": "Princeton, NJ",
+   "deadline_month": 2,
+   "selectivity": "very high",
+   "eligibility_notes": "Juniors from lower-income backgrounds",
+   "notes": "Free including travel"
+  },
+  {
+   "id": "iyws",
+   "name": "Iowa Young Writers' Studio",
+   "org": "University of Iowa",
+   "category": "summer_program",
+   "fields": [
+    "creative writing"
+   ],
+   "url": "https://iowayoungwritersstudio.org",
+   "grades": [
+    10,
+    11,
+    12
+   ],
+   "cost": "paid_with_aid",
+   "format": "residential or online",
+   "location": "Iowa City, IA / online",
+   "deadline_month": 2,
+   "selectivity": "high",
+   "eligibility_notes": "Check grade rules per session",
+   "notes": "Writing sample required"
+  },
+  {
+   "id": "kenyon-yw",
+   "name": "Kenyon Review Young Writers Workshop",
+   "org": "The Kenyon Review",
+   "category": "summer_program",
+   "fields": [
+    "creative writing"
+   ],
+   "url": "https://kenyonreview.org/workshops/young-writers/",
+   "grades": [
+    9,
+    10,
+    11,
+    12
+   ],
+   "cost": "paid_with_aid",
+   "format": "residential or online",
+   "location": "Gambier, OH / online",
+   "deadline_month": 3,
+   "selectivity": "moderate",
+   "eligibility_notes": "Ages ~16-18 (check)",
+   "notes": "Writing sample required"
+  },
+  {
+   "id": "nysc",
+   "name": "National Youth Science Camp",
+   "org": "National Youth Science Academy",
+   "category": "summer_program",
+   "fields": [
+    "science",
+    "engineering"
+   ],
+   "url": "https://www.nysacademy.org/programs/nyscamp/",
+   "grades": [
+    11,
+    12
+   ],
+   "cost": "free",
+   "format": "residential",
+   "location": "West Virginia",
+   "deadline_month": 2,
+   "selectivity": "very high",
+   "eligibility_notes": "Juniors/seniors; delegates chosen per state (some states run their own selection)",
+   "notes": "All-expenses-paid"
+  },
+  {
+   "id": "nsli-y",
+   "name": "National Security Language Initiative for Youth (NSLI-Y)",
+   "org": "US Department of State",
+   "category": "summer_program",
+   "fields": [
+    "languages",
+    "international affairs"
+   ],
+   "url": "https://www.nsliforyouth.org",
+   "grades": [
+    9,
+    10,
+    11,
+    12
+   ],
+   "cost": "free",
+   "format": "abroad",
+   "location": "Abroad",
+   "deadline_month": 11,
+   "selectivity": "high",
+   "eligibility_notes": "US citizens; ages ~15-18",
+   "notes": "Funding status can change - verify the current cycle exists"
+  },
+  {
+   "id": "girls-who-code",
+   "name": "Girls Who Code Summer Programs",
+   "org": "Girls Who Code",
+   "category": "summer_program",
+   "fields": [
+    "computer science"
+   ],
+   "url": "https://girlswhocode.com/programs",
+   "grades": [
+    9,
+    10,
+    11,
+    12
+   ],
+   "cost": "free",
+   "format": "virtual",
+   "location": "Online",
+   "deadline_month": 3,
+   "selectivity": "moderate",
+   "eligibility_notes": "Girls and non-binary students",
+   "notes": "Free virtual programs; format changes year to year"
+  },
+  {
+   "id": "governors-school",
+   "name": "State Governor's School / state summer institutes",
+   "org": "Varies by state",
+   "category": "summer_program",
+   "fields": [
+    "varies"
+   ],
+   "url": "https://en.wikipedia.org/wiki/Governor%27s_school",
+   "grades": [
+    10,
+    11
+   ],
+   "cost": "free",
+   "format": "residential",
+   "location": "Your state",
+   "deadline_month": 1,
+   "selectivity": "high",
+   "eligibility_notes": "Residents of that state; usually school nomination",
+   "notes": "Many states run free or low-cost programs; search \"<your state> governor\\u0027s school\" and ask your counselor about nomination"
+  },
+  {
+   "id": "usajobs-pathways",
+   "name": "Federal Pathways Internships",
+   "org": "US federal agencies",
+   "category": "internship",
+   "fields": [
+    "varies"
+   ],
+   "url": "https://www.usajobs.gov/help/working-in-government/unique-hiring-paths/students/",
+   "grades": [
+    10,
+    11,
+    12
+   ],
+   "cost": "stipend",
+   "format": "in-person",
+   "location": "Nationwide",
+   "deadline_month": 0,
+   "selectivity": "moderate",
+   "eligibility_notes": "Usually 16+ and US citizen; enrolled students",
+   "notes": "Postings open year-round; filter for high-school-eligible"
+  }
+ ]
+}
