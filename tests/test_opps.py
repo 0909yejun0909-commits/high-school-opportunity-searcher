@@ -62,11 +62,24 @@ class Seed(unittest.TestCase):
         ids = [p["id"] for p in programs]
         self.assertEqual(len(ids), len(set(ids)), "duplicate seed ids")
         for p in programs:
-            for key in ("name", "org", "category", "url", "grades", "cost", "deadline_month"):
+            for key in ("name", "org", "category", "url", "grades", "cost", "deadline_month",
+                        "host_country", "eligible_from"):
                 self.assertIn(key, p, f"{p['id']} missing {key}")
             self.assertTrue(p["url"].startswith("https://"), p["id"])
             self.assertIn(p["cost"], {"free", "stipend", "paid", "paid_with_aid", "check"}, p["id"])
+            self.assertIn(p["category"], opps.CATEGORIES, p["id"])
             self.assertTrue(0 <= p["deadline_month"] <= 12, p["id"])
+            self.assertTrue(set(p["grades"]) <= {8, 9, 10, 11, 12}, p["id"])
+            allowed = p["eligible_from"]
+            if allowed is not None:
+                self.assertTrue(allowed, f"{p['id']}: eligible_from is empty; use null if unknown")
+                for code in allowed:
+                    self.assertTrue(code in {"*", "EUROPE"} or (len(code) == 2 and code.isupper()),
+                                    f"{p['id']}: bad eligible_from code {code!r}")
+
+    def test_seed_covers_more_than_the_us(self):
+        hosts = {p["host_country"] for p in opps.load_seed()}
+        self.assertTrue({"UK", "CA", "AU"} <= hosts, hosts)
 
     def test_no_paid_filter_drops_tuition_programs(self):
         hits = opps.filter_seed(opps.load_seed(), cost="no-paid")
@@ -78,6 +91,55 @@ class Seed(unittest.TestCase):
         self.assertTrue(hits)
         for p in hits:
             self.assertIn(11, p["grades"])
+
+
+class Countries(unittest.TestCase):
+    PROGRAMS = [
+        {"id": "us-only", "host_country": "US", "eligible_from": ["US"], "grades": [11]},
+        {"id": "anyone", "host_country": "US", "eligible_from": ["*"], "grades": [11]},
+        {"id": "europe", "host_country": "UK", "eligible_from": ["EUROPE"], "grades": [11]},
+        {"id": "uk-only", "host_country": "UK", "eligible_from": ["UK"], "grades": [11]},
+        {"id": "us-abroad", "host_country": "DE", "eligible_from": ["US"], "grades": [11]},
+        {"id": "unknown-us", "host_country": "US", "eligible_from": None, "grades": [11]},
+        {"id": "online", "host_country": "ONLINE", "eligible_from": ["*"], "grades": [11]},
+    ]
+
+    def ids(self, **kw):
+        return [p["id"] for p in opps.filter_seed(self.PROGRAMS, **kw)]
+
+    def test_home_country_keeps_only_eligible(self):
+        self.assertEqual(self.ids(home="US"), ["us-only", "anyone", "us-abroad", "unknown-us", "online"])
+        self.assertEqual(self.ids(home="FR"), ["anyone", "europe", "online"])
+        self.assertEqual(self.ids(home="IN"), ["anyone", "online"])
+
+    def test_uk_aliases(self):
+        self.assertEqual(self.ids(home="GB"), self.ids(home="uk"))
+        self.assertIn("uk-only", self.ids(home="GB"))
+
+    def test_unrecorded_eligibility_is_unverified_at_home_and_hidden_abroad(self):
+        p = self.PROGRAMS[5]
+        self.assertEqual(opps.eligibility(p, "US"), "unverified")
+        self.assertEqual(opps.eligibility(p, "CA"), "no")
+
+    def test_abroad_excludes_home_and_online(self):
+        self.assertEqual(self.ids(home="US", abroad=True), ["us-abroad"])
+        self.assertEqual(self.ids(home="FR", abroad=True), ["anyone", "europe"])
+
+    def test_international_flag(self):
+        self.assertEqual(self.ids(international=True), ["anyone", "online"])
+
+    def test_mediterranean_counts_as_europe(self):
+        self.assertEqual(opps.eligibility(self.PROGRAMS[2], "EG"), "yes")
+
+    def test_cli_abroad_requires_home(self):
+        code, _, err = run("seed", "--abroad")
+        self.assertEqual(code, 2)
+        self.assertIn("--home", err)
+
+    def test_real_seed_uk_student_sees_uk_programs(self):
+        ids = {p["id"] for p in opps.filter_seed(opps.load_seed(), grade=11, home="UK")}
+        self.assertTrue({"uniq", "sutton-trust", "promys-europe"} <= ids, ids)
+        self.assertNotIn("nasa-ostem", ids)
 
 
 class Seen(TempData):

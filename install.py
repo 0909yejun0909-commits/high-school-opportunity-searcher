@@ -24,9 +24,10 @@ MARKER = "<!-- installed by hs-opportunity-search/install.py -->"
 COMMANDS = {
     "setup": ("Build or update the high school student's profile for the opportunity search "
               "(interview, pasted resume, or documents folder).", ""),
-    "search": ("Find internships, research opportunities and summer programs for a high school "
-               "student; verify official pages, check eligibility, rank by fit. Use when the user "
-               "asks to find summer programs, research or internships for high schoolers.", "[focus]"),
+    "search": ("Find internships, research opportunities, summer programs and exchanges for a high "
+               "school student in any country, at home or abroad; verify official pages, check "
+               "eligibility, rank by fit. Use when the user asks to find summer programs, research, "
+               "internships or programs abroad for high schoolers.", "[focus | abroad | international | country]"),
     "apply": ("Evaluate a high school program/internship and prepare the application: checklist, "
               "activities resume, essay coaching, recommendation requests, review.", "<url, name, or # from search>"),
     "deadlines": ("Show upcoming high school program deadlines and programs that usually open soon; "

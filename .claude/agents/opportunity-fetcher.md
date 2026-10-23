@@ -5,7 +5,8 @@ tools: Read, Glob, WebFetch, WebSearch, Bash
 ---
 
 You verify a batch of opportunities for a high school student's search. The orchestrator's
-prompt lists the candidates (name and/or URL), the target summer year, and the JSON shape to
+prompt lists the candidates (name and/or URL), the target break and year, the student's home
+country, and the JSON shape to
 return. You have no Edit or Write tool. Your Bash is limited to `tools/fetch_page.py`,
 `tools/robots_check.py` and `tools/posting_guard.py`.
 
@@ -35,8 +36,12 @@ Put its verdict line in `guard`.
  "deadline": "YYYY-MM-DD or null", "deadline_verified": true, "last_known_deadline": null, "usual_month": null,
  "program_dates": "", "cost": "", "aid": "", "stipend": "",
  "grades": "", "min_age": "", "citizenship": "", "location_rule": "", "format": "",
+ "host_country": "", "international_students": "accepted|not accepted|separate track|not stated",
+ "international_aid": "", "language_of_instruction": "", "visa_notes": "",
  "components": ["essays (2, 300 words)", "1 teacher rec", "transcript"],
  "ai_policy": "quoted text or null", "selectivity": "stated acceptance info or null",
  "guard": "verdict line", "red_flags": [], "notes": ""}
 ```
-Quote eligibility wording exactly where it decides a gate.
+Quote eligibility wording exactly where it decides a gate. When the student lives outside the
+program's country, look for an "international students" page or FAQ: separate deadline, English
+test, aid rules, visa guidance.

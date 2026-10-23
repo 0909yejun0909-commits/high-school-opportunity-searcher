@@ -31,7 +31,13 @@ If it is missing or still contains `[PLACEHOLDER]` tokens, tell the student to r
 - Flag anything that asks for an SSN, bank details, or payment before acceptance, or that wants
   the student to meet an adult one-on-one off-site without a known institution involved.
 - For residential or travel programs, and for any unpaid "internship" with a company, remind the
-  student to involve a parent/guardian.
+  student to involve a parent/guardian. For programs abroad, also remind them about passports,
+  visas, travel insurance, and the program's supervision of minors.
+
+### Any country
+- Don't assume the student is in the US. Use their home country, local school-year names, their
+  own long-break dates (the southern hemisphere's is around December-February), their currency,
+  and their language for local searches.
 
 ### Honesty
 - Never invent or inflate activities, awards, hours, grades or roles. A gap is stated honestly and
@@ -62,7 +68,8 @@ If it is missing or still contains `[PLACEHOLDER]` tokens, tell the student to r
 
 ## Files
 
-- `data/programs_seed.json` - curated list of ~40 well-known US programs (leads, not facts)
+- `data/programs_seed.json` - curated list of ~50 well-known programs, mostly US plus UK, Canada,
+  Europe, Israel, Australia, Singapore and exchanges abroad (leads, not facts)
 - `data/seen.json` - every opportunity `/search` has shown (dedup) - read via `tools/opps.py`
 - `data/tracker.csv` - the student's application tracker - read/write via `tools/opps.py`
 - `applications/<program-slug>/` - per-program plans, resume, essay notes, emails

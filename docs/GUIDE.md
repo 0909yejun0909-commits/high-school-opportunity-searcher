@@ -70,16 +70,19 @@ award, new grade, new interests).
 | **Read my documents** | You put files in the `documents/` folder first: transcript (an unofficial one is fine), activities list, awards, an essay you wrote |
 
 It asks about:
-- **Basics:** grade, graduation year, age next summer, city/state/country, citizenship or residency
+- **Basics:** your country and city, your school year *as your school calls it* (Grade 10, Year 12, S5, JC1...), graduation year, age, citizenship(s) or residency
+- **Your long break:** when it is. Not everyone's is June-August: in Australia, New Zealand, southern Africa and much of South America it's around December-February
+- **Going abroad:** whether you'd consider programs in other countries, which ones, and which languages you could study in
 - **Interests:** what you're curious about *and how you got into it*. Real stories here become essay material later.
 - **School:** strongest subjects, advanced classes, GPA, test scores (optional), competitions
 - **Activities, projects, jobs, volunteering:** with hours per week and what you actually did
-- **Logistics:** can you stay away from home? for how long? summer dates, budget, do you need to earn money?
+- **Logistics:** can you stay away from home? for how long? budget (in your currency), do you need to earn money?
 - **Recommenders:** teachers or mentors who know you well (it never contacts them)
 - **Writing voice:** it asks for a paragraph you wrote, so its feedback keeps your essays sounding like you
 
-**Why it asks about citizenship and background:** many programs have hard rules (federal labs
-usually require US citizenship; some programs only take local students). Several free programs
+**Why it asks about citizenship and background:** many programs have hard rules (US federal labs
+usually require US citizenship; UK programs like UNIQ are for UK state-school students; some
+programs only take local students; programs abroad may need a visa). Several free programs
 also give priority to first-generation, low-income, or underrepresented students. Sharing
 background details is **completely optional**. Skip any question you want.
 
@@ -106,7 +109,10 @@ want to explore something new.
 | `/opp-search local` | Things you can commute to: labs, hospitals, museums, city programs |
 | `/opp-search math` | Math camps and research (these have problem-set applications) |
 | `/opp-search broad` | A wider net, including ones it showed you before |
-| `/opp-search next-year` | Plan ahead for the summer after next (great for 9th/10th graders) |
+| `/opp-search next-year` | Plan ahead for the break after next (great for 9th/10th graders) |
+| `/opp-search abroad` | Only opportunities outside your country: summer schools, research institutes, exchanges |
+| `/opp-search international` | Programs anywhere that accept students from any country |
+| `/opp-search Germany` (any country or region) | Opportunities held there that you're allowed to apply to |
 
 **What happens (it takes a few minutes):**
 1. It tells you how it's searching ("10th grader now, age 16 next June, Austin TX, free/aid only")
@@ -122,7 +128,15 @@ want to explore something new.
 - **Top matches:** ranked, with fit score, Reach/Target/Likely, and a one-line honest reason
 - **Local / likely options:** your safety net
 - **Not eligible (and why):** with the exact rule quoted and when you *can* apply
+- **Abroad** (if you're open to it): country, total cost *including travel*, whether financial aid
+  covers international students, and visa notes
 - **Opens later:** programs whose applications aren't posted yet, with the usual month
+
+**Applying from outside the program's country?** It also checks the program's international
+page. That page often has a different (earlier) deadline, an English test requirement, separate
+aid rules ("international students welcome" doesn't always mean "aid for international students"),
+and visa guidance. Many US summer programs that aren't for college credit use a visitor visa or
+ESTA rather than a student visa, but follow each program's own instructions.
 
 **How to read a deadline:**
 - **verified**: it read this date on the official site during this search
@@ -329,9 +343,21 @@ online programs (PRIMES-USA, online writing workshops), and remote computational
 through `/opp-outreach`.
 
 **"I'm not in the US."**
-Set your country in `/opp-setup`. The curated list is US-focused, but web search, eligibility
-checks, essay coaching and outreach all work. Many US programs accept international students,
-and it will check which ones.
+Tell `/opp-setup` your country, your school year as your school names it, and when your long
+break is. Searches use your local terms (Year 12, sixth form, JC, lycée, work experience) and
+your local language, and only show programs you're allowed to apply to. The curated list includes
+the UK (UNIQ, Sutton Trust, In2scienceUK, PROMYS Europe), Canada (Shad), Australia (NYSF),
+Singapore (A*STAR awards), Europe-wide and worldwide programs (PROMYS Europe, CERN Beamline for
+Schools, Weizmann ISSI), and the US programs that accept international students (RSI, SSP, Ross,
+PROMYS, Mathcamp, SUMaC, YYGS, TASS). For other countries the live search does most of the work.
+
+**"I want to go abroad."**
+Say so in `/opp-setup` (which countries, which languages), then `/opp-search abroad` or
+`/opp-search <country>`. For US students, fully funded options include NSLI-Y (languages),
+CBYX (a year in Germany) and YES Abroad. These close around November-December for the
+following year, so start early. For anyone, give yourself extra time for passports and visas
+(2-4 months), budget for flights and insurance, and involve a parent or guardian from the
+start.
 
 ---
 
@@ -362,6 +388,9 @@ python3 tools/opps.py track add --program "SSP" --url https://summerscience.org 
 python3 tools/opps.py track update --program "SSP" --status submitted --notes "sent Feb 10"
 python3 tools/opps.py deadlines --days 45 --ics deadlines.ics
 python3 tools/opps.py seed --grade 10 --field biology --cost no-paid   # browse the curated list
+python3 tools/opps.py seed --grade 11 --home UK                        # what a UK student can apply to
+python3 tools/opps.py seed --home US --abroad                          # programs abroad for US students
+python3 tools/opps.py seed --international --field math                # open to any country
 ```
 
 Statuses: `interested, preparing, submitted, interview, accepted, waitlisted, rejected,

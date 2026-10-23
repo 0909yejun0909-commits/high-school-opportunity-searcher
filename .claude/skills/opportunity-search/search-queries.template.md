@@ -5,13 +5,15 @@
 (git-ignored); this template is what gets committed. -->
 
 ## Profile summary used for searching
-- Grade now: [GRADE] · Next summer: [NEXT_SUMMER_YEAR] · Age then: [AGE_NEXT_SUMMER]
-- Region: [CITY], [STATE] · Travel: [TRAVEL] · Budget: [BUDGET] · Citizenship: [CITIZENSHIP]
+- School year: [LOCAL_GRADE] (US grade [GRADE]) · Next long break: [BREAK_DATES] [BREAK_YEAR] · Age then: [AGE_NEXT_BREAK]
+- Home: [CITY], [REGION], [HOME_COUNTRY] · Citizenship: [CITIZENSHIP] · Abroad: [ABROAD]
+- Travel: [TRAVEL] · Budget: [BUDGET] · Languages: [WORK_LANGUAGES]
 - Interests: [INTEREST_FIELDS]
 
 ## Seed filter
 ```
-python3 tools/opps.py seed --grade [GRADE] [--field ...] --cost [any|free|no-paid]
+python3 tools/opps.py seed --grade [GRADE] --home [HOME_COUNTRY] [--field ...] --cost [any|free|no-paid]
+python3 tools/opps.py seed --grade [GRADE] --home [HOME_COUNTRY] --abroad     # only if open to going abroad
 ```
 
 ## Queries by category
@@ -21,8 +23,11 @@ python3 tools/opps.py seed --grade [GRADE] [--field ...] --cost [any|free|no-pai
 ### Internships
 - [QUERY]
 
-### Summer programs
+### Summer / holiday programs
 - [QUERY]
 
 ### Local
+- [QUERY]
+
+### Abroad / international (only if open to going abroad)
 - [QUERY]

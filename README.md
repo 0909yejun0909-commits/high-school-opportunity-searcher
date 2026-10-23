@@ -1,7 +1,7 @@
 <h1 align="center">High School Opportunity Searcher</h1>
 
 <p align="center">
-  <b>Find internships, research opportunities, and summer programs that you can actually get into, and stop missing the deadlines.</b>
+  <b>Find internships, research opportunities, and summer programs that you can actually get into, at home or abroad, and stop missing the deadlines.</b>
 </p>
 
 <p align="center">
@@ -31,8 +31,10 @@ research spots are never posted at all.
 **High School Opportunity Searcher** turns [Claude Code](https://claude.com/product/claude-code)
 into a personal opportunity counselor. You tell it about yourself once. Then it:
 
-- 🔎 **Searches** a curated list of well-known programs *and* the live web (universities, NASA/NIH/Navy/Army labs,
-  hospitals, museums, city youth programs near you)
+- 🔎 **Searches** a curated list of well-known programs *and* the live web (universities, national labs and research
+  institutes, hospitals, museums, city youth programs near you), in your country's terms and language
+- 🌍 **Works in any country**, and can look abroad: international summer schools, research institutes overseas,
+  and fully funded exchanges, with checks for visas, language, and whether financial aid covers international students
 - ✅ **Checks every result on the program's official website** for this year's deadline, cost, and who can apply,
   and labels anything it couldn't confirm
 - 🎯 **Tells you honestly** which ones you're eligible for, how well each one fits, and which are reach / target / likely
@@ -42,7 +44,9 @@ into a personal opportunity counselor. You tell it about yourself once. Then it:
 - 📧 **Gets you research positions that aren't posted** by finding labs near you and helping you email professors
 
 It works for **research programs, internships (paid and volunteer), summer programs, math camps,
-writing workshops, and more**, in any subject.
+writing workshops, exchanges, and more**, in any subject. It also works wherever you live:
+the curated list covers the US, UK, Canada, Europe, Israel, Australia and Singapore, and the
+live search covers everywhere else.
 
 ## What it looks like
 
@@ -108,19 +112,20 @@ Then type **`/opp-setup`** inside Claude Code. That's it.
 | Command | Use it to... |
 |---|---|
 | `/opp-setup` | Build or update your profile (interview, paste a resume, or read files you drop in `documents/`) |
-| `/opp-search [focus]` | Find opportunities. Try `biology`, `paid internships`, `local`, `math`, `broad`, `next-year` |
+| `/opp-search [focus]` | Find opportunities. Try `biology`, `paid internships`, `local`, `math`, `abroad`, `international`, `Germany`, `next-year` |
 | `/opp-apply <# / name / link>` | Get a full fit check, then an application plan, activities resume, essay coaching, rec-request emails, and a review |
 | `/opp-deadlines [days] [ics]` | See what's due and what usually opens soon, and export a calendar file |
 | `/opp-outreach <topic or professor>` | Find labs near you and write a short email asking to do research |
 | `/opp-outcome <program> <result>` | Record submitted / interview / accepted / rejected, and get the right follow-up email |
 | `/opp-interview <program>` | Get a prep sheet and a mock interview |
 
-You can also just talk to it: *"find me free summer programs for engineering"* or
-*"am I eligible for RSI?"* work too.
+You can also just talk to it: *"find me free summer programs for engineering,"*
+*"am I eligible for RSI?,"* or *"what research programs in Europe can I apply to from India?"* work too.
 
 ## When to start
 
-Many students start looking in March, when most deadlines have already passed. A typical year looks like this:
+Many students start looking in March, when most deadlines have already passed. A typical
+year for **US summer programs** looks like this:
 
 | When | What's due | What to do |
 |---|---|---|
@@ -129,6 +134,12 @@ Many students start looking in March, when most deadlines have already passed. A
 | **Feb-Mar** | The biggest wave: most university summer programs, internships, MITES, SSP | Keep `/opp-deadlines` handy |
 | **Mar-Apr** | Math camps (Ross, PROMYS, Mathcamp), writing workshops, local internships | Problem sets, writing samples |
 | **Apr-May** | Decisions arrive | `/opp-outcome` to track results, accept, decline, or join waitlists |
+
+**Outside the US?** The pattern is the same, but measured from *your* long break: deadlines
+usually fall 4-8 months before it. Australia's NYSF, which runs in January, closes around July.
+UK summer schools mostly close January-April. Exchanges such as CBYX and YES Abroad close
+around November for the *following* school year. Programs abroad also need time for a visa,
+so start a month or two earlier.
 
 **9th and 10th graders:** many top programs are for juniors. Run `/opp-search next-year` to plan
 ahead and use this year to build the skills and projects those programs look for.
@@ -170,9 +181,19 @@ checklists) it drafts directly, using only facts from your profile.
 
 **Is it free?** The project is free and open source. Claude Code needs a paid Claude plan or API credits.
 
-**Does it only work in the US?** The curated list is US programs, and federal-lab rules assume
-US citizenship. The web search, eligibility checks and application help work anywhere. Set your
-country in `/opp-setup`. Contributions of non-US programs are very welcome.
+**I don't live in the US. Does it work for me?** Yes. Tell `/opp-setup` your country, your
+school year as your school names it (Year 12, JC1, lycée...), and when your long break is
+(December-February in the southern hemisphere). It searches with your local terms and language.
+It only lists programs you're actually allowed to apply to: for example, it knows most US
+government labs are citizens-only, UK programs like UNIQ are UK-state-school only, and PROMYS
+Europe is for students living in Europe. The curated list is strongest for the US and UK, so
+for other countries the live web search does most of the work. Additions from your country are
+very welcome.
+
+**Can it find programs abroad?** Yes: `/opp-search abroad`, `/opp-search international`, or
+`/opp-search Japan`. It checks whether international students are accepted, whether financial aid
+covers them (often it doesn't), the language of instruction, visa needs, and the real total cost
+including travel. It also finds fully funded exchanges like CBYX and YES Abroad.
 
 **How accurate are the deadlines?** Anything marked *verified* was read on the official site during that
 search. The built-in list only stores the *usual* month, and the tool never presents last year's
@@ -195,7 +216,7 @@ install.py                             adds the /opp-* commands to every folder
 .claude/skills/opportunity-search/     search workflow, where to look, your saved queries
 .claude/skills/opportunity-assistant/  profile template, evaluation framework, writing guide
 .claude/agents/                        page checker (opportunity-fetcher), application reviewer (opportunity-reviewer)
-data/programs_seed.json                curated list of ~40 programs (starting points, not final facts)
+data/programs_seed.json                curated list of ~55 programs in 8 countries + exchanges (starting points, not final facts)
 tools/opps.py                          tracker, deadlines, calendar export, dedup
 tools/posting_guard.py & friends       safe page fetching (from ai-job-search)
 
@@ -209,8 +230,9 @@ documents/                                        files you give /opp-setup
 ## Contributing
 
 The most valuable help is **keeping the program list accurate**. Add a program that runs most
-years, fix one whose rules changed, or add programs from your state or country. Edit
-[`data/programs_seed.json`](data/programs_seed.json), link the official page in your pull
+years, fix one whose rules changed, or add programs from your state or country. **Programs
+outside the US are especially wanted.** Edit
+[`data/programs_seed.json`](data/programs_seed.json) (set `host_country` and who can apply in `eligible_from`; the file's `_about` explains the fields), link the official page in your pull
 request, and run the tests:
 
 ```bash

@@ -5,7 +5,8 @@ Keeps the growing files (seen list, tracker) out of the conversation: the slash
 commands call this tool instead of reading them whole. Stdlib only.
 
 Subcommands:
-  seed      Filter data/programs_seed.json by grade, field, cost, category.
+  seed      Filter data/programs_seed.json by grade, field, cost, category, and
+            country (--home, --abroad, --international).
   seen      check URLs against data/seen.json, or add/update entries (JSON on stdin).
   track     add / update / list rows in data/tracker.csv.
   deadlines Upcoming deadlines from the tracker, plus seed programs that usually
@@ -13,6 +14,9 @@ Subcommands:
 
 Examples:
   python3 tools/opps.py seed --grade 10 --field biology --cost no-paid
+  python3 tools/opps.py seed --grade 11 --home UK            # eligible from the UK
+  python3 tools/opps.py seed --home US --abroad              # US students going abroad
+  python3 tools/opps.py seed --international --field math    # open to any country
   python3 tools/opps.py seen check https://example.org/a https://example.org/b
   echo '[{"url": "...", "name": "...", "fit": 78}]' | python3 tools/opps.py seen add
   python3 tools/opps.py track add --program "SSP" --org "Summer Science Program" \\
@@ -52,6 +56,16 @@ STATUSES = [
 CLOSED = {"accepted", "rejected", "declined", "withdrawn", "missed"}
 COST_PAID = {"paid", "paid_with_aid"}
 MONTHS = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+CATEGORIES = ["research", "summer_program", "internship", "math", "exchange"]
+
+COUNTRY_ALIASES = {"GB": "UK", "USA": "US", "UNITED STATES": "US", "UNITED KINGDOM": "UK"}
+# "EUROPE" in eligible_from: Europe plus every country bordering the Mediterranean
+# (the PROMYS Europe definition). ISO 3166 codes, with UK for the United Kingdom.
+EUROPE = set(
+    "AD AL AT BA BE BG BY CH CY CZ DE DK EE ES FI FR GR HR HU IE IS IT LI LT LU LV MC MD ME MK MT "
+    "NL NO PL PT RO RS SE SI SK SM UA UK VA XK "
+    "DZ EG IL LB LY MA PS SY TN TR".split()
+)
 
 
 def today() -> dt.date:
@@ -95,11 +109,44 @@ def load_seed() -> list[dict]:
     return json.loads(SEED.read_text(encoding="utf-8"))["programs"]
 
 
-def filter_seed(programs, grade=None, fields=(), cost="any", category=None):
+def norm_country(code: str | None) -> str | None:
+    if not code:
+        return None
+    code = code.strip().upper()
+    return COUNTRY_ALIASES.get(code, code)
+
+
+def eligibility(p: dict, home: str | None) -> str:
+    """'yes' if a student living in `home` may apply, 'unverified' if the seed
+    hasn't recorded international eligibility and the program is held in the
+    student's own country, otherwise 'no'. With no home given, everything is 'yes'."""
+    home = norm_country(home)
+    if not home:
+        return "yes"
+    allowed = p.get("eligible_from")
+    if allowed is None:
+        return "unverified" if norm_country(p.get("host_country")) == home else "no"
+    allowed = {norm_country(a) for a in allowed}
+    if "*" in allowed or home in allowed or ("EUROPE" in allowed and home in EUROPE):
+        return "yes"
+    return "no"
+
+
+def filter_seed(programs, grade=None, fields=(), cost="any", category=None,
+                home=None, abroad=False, international=False):
+    home = norm_country(home)
     out = []
     for p in programs:
         if grade is not None and grade not in p.get("grades", []):
             continue
+        if international and "*" not in (p.get("eligible_from") or []):
+            continue
+        if home and eligibility(p, home) == "no":
+            continue
+        if abroad:
+            host = norm_country(p.get("host_country"))
+            if host == "ONLINE" or (home and host == home):
+                continue
         if category and p.get("category") != category:
             continue
         if cost == "free" and p.get("cost") != "free":
@@ -115,13 +162,22 @@ def filter_seed(programs, grade=None, fields=(), cost="any", category=None):
 
 
 def cmd_seed(args):
-    hits = filter_seed(load_seed(), args.grade, args.field or (), args.cost, args.category)
+    if args.abroad and not args.home:
+        print("error: --abroad needs --home <country code>", file=sys.stderr)
+        return 2
+    hits = filter_seed(load_seed(), args.grade, args.field or (), args.cost, args.category,
+                       args.home, args.abroad, args.international)
+    for p in hits:
+        p["eligibility"] = eligibility(p, args.home)
     if args.json:
         print(json.dumps(hits, indent=1, ensure_ascii=False))
         return 0
     for p in hits:
-        month = MONTHS[p["deadline_month"]] if p.get("deadline_month") else "rolling"
-        print(f"{p['id']}\t{p['name']}\t{p['category']}\t{p['cost']}\t~{month}\t{p['url']}")
+        month = MONTHS[p["deadline_month"]] if p.get("deadline_month") else "varies"
+        where = p.get("host_country", "?") + ("?" if p["eligibility"] == "unverified" else "")
+        print(f"{p['id']}\t{p['name']}\t{where}\t{p['category']}\t{p['cost']}\t~{month}\t{p['url']}")
+    if any(p["eligibility"] == "unverified" for p in hits):
+        print("(? = international eligibility not recorded; check the official page)", file=sys.stderr)
     print(f"({len(hits)} programs)", file=sys.stderr)
     return 0
 
@@ -327,12 +383,16 @@ def cmd_deadlines(args):
     if not args.no_seed:
         names = {r["program"].lower() for r in rows}
         urls = {url_key(r["url"]) for r in rows if r.get("url")}
-        heads = seed_heads_up(load_seed(), names, urls, args.days)
+        programs = load_seed()
+        if args.home:
+            programs = [p for p in programs if eligibility(p, args.home) != "no"]
+        heads = seed_heads_up(programs, names, urls, args.days)
         print(f"\n## Usually due in this window, not tracked yet (verify dates on the official site)")
         if not heads:
             print("none")
         for p in heads:
-            print(f"~{MONTHS[p['deadline_month']]}  {p['name']}  ({p['cost']}, grades {p['grades']})  {p['url']}")
+            where = p.get("host_country", "?")
+            print(f"~{MONTHS[p['deadline_month']]}  {p['name']}  [{where}]  ({p['cost']}, grades {p['grades']})  {p['url']}")
     if args.ics:
         write_ics([i for i in items if i[0] >= 0], Path(args.ics))
         print(f"\nwrote {args.ics}")
@@ -346,10 +406,13 @@ def main(argv=None):
     sub = ap.add_subparsers(dest="cmd", required=True)
 
     s = sub.add_parser("seed")
-    s.add_argument("--grade", type=int, help="grade the student is in NOW (9-12); programs list grades at time of applying")
+    s.add_argument("--grade", type=int, help="US-equivalent grade the student is in NOW (9-12; UK Year 12 = 11); programs list grades at time of applying")
     s.add_argument("--field", action="append", help="interest keyword; repeatable")
     s.add_argument("--cost", choices=["any", "free", "no-paid"], default="any")
-    s.add_argument("--category", choices=["research", "summer_program", "internship", "math"])
+    s.add_argument("--category", choices=CATEGORIES)
+    s.add_argument("--home", help="student's country of residence (ISO code, e.g. US, UK, CA, IN): keep only programs they may apply to")
+    s.add_argument("--abroad", action="store_true", help="with --home: only programs held outside the home country")
+    s.add_argument("--international", action="store_true", help="only programs open to students from any country")
     s.add_argument("--json", action="store_true")
     s.set_defaults(func=cmd_seed)
 
@@ -369,6 +432,7 @@ def main(argv=None):
     s.add_argument("--days", type=int, default=60)
     s.add_argument("--ics", help="also write upcoming tracker deadlines to this .ics file")
     s.add_argument("--no-seed", action="store_true")
+    s.add_argument("--home", help="only suggest seed programs a student living here may apply to")
     s.set_defaults(func=cmd_deadlines)
 
     args = ap.parse_args(argv)

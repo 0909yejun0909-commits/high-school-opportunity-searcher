@@ -1,7 +1,7 @@
 # /deadlines - What's Due and What's Coming
 
-1. Run `python3 tools/opps.py deadlines --days <N>`, where N is a number in `$ARGUMENTS` or 60 by
-   default. If `$ARGUMENTS` contains `ics`, add `--ics deadlines.ics`.
+1. Run `python3 tools/opps.py deadlines --days <N> --home <HOME_COUNTRY from profile.md>` (leave out `--home` if the profile has no country), where N
+   is a number in `$ARGUMENTS` or 60 by default. If `$ARGUMENTS` contains `ics`, add `--ics deadlines.ics`.
 2. Present two sections:
    - **Tracked deadlines** - overdue first, then this week, then the rest. For each one that's
      `interested` or `preparing`, read `applications/<slug>/plan.md` if it exists and name the

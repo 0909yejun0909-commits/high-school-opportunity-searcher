@@ -11,10 +11,13 @@ last year's cycle, say so and treat the result as provisional.
 | Gate | FAIL when | Notes |
 |---|---|---|
 | **Grade / age** | Student's grade at application time or age at program start is outside the stated range | Watch the wording: "rising senior" = currently a junior. "Must be 16 by June 15" is checked against the profile's age next summer. |
-| **Citizenship / residency** | Program requires a status the student does not have (US citizen, PR, state resident, specific metro area) | Federal labs usually require citizenship. Local programs (SIMR, NIH, Fred Hutch, Broad) often require living within commuting distance. |
+| **Citizenship / residency** | Program requires a status the student does not have (US citizen, PR, UK resident, state resident, specific metro area, EU resident...) | Federal labs usually require citizenship. Local programs (SIMR, NIH, Fred Hutch, Broad) often require living within commuting distance. Check every passport the student holds. For students outside the host country, look for the program's *international* page: many have separate deadlines, extra documents, or a quota. |
+| **School type** | Program is limited to a school type the student isn't in (e.g. UK "state school only", nomination by school) | Common in the UK (UNIQ, Sutton Trust, In2science) and Singapore (school nomination). |
+| **Visa & travel** (programs abroad) | The student can't legally attend: needs a visa that isn't realistic in time, or the program won't host minors from abroad | Short non-credit programs in the US usually use a visitor visa/ESTA, not a student visa - check the program's own guidance. Allow 2-4 months for visa appointments. Say who pays travel. |
+| **Language** | Instruction is in a language the student can't work in | Ask for English-test requirements (TOEFL/IELTS/Duolingo) if English isn't the student's first language. |
 | **Deadline** | Deadline for this cycle has passed | If passed, record the usual month so `/deadlines` warns next year. If it closes within 14 days, flag **URGENT** and check whether recommendations can still be gathered in time. |
 | **Logistics** | Dates clash with the student's stated commitments, or residential when the student can't travel | Partial clashes are a FLAG, not a FAIL. |
-| **Budget** | Cost exceeds the budget *after* realistic aid | "Need-based aid available" is not "free" - say what the aid policy actually says. |
+| **Budget** | Cost exceeds the budget *after* realistic aid | "Need-based aid available" is not "free" - say what the aid policy actually says. For international students check whether aid covers them at all (often it doesn't) and add flights, visa and insurance to the total. Convert to the student's currency. |
 
 When a gate is **unclear** (page silent, ambiguous wording), mark it UNVERIFIED and tell the
 student exactly what to check or whom to email. Silence is not permission.
@@ -66,9 +69,10 @@ admissions luck.
 ```
 ## [Program] - [Org]
 Official page: <url>  (cycle checked: 20XX)
-Deadline: YYYY-MM-DD (verified / unverified)   Cost: ...   Dates: ...   Format: ...
+Deadline: YYYY-MM-DD (verified / unverified)   Cost: ... (≈ in student's currency)   Dates: ...   Format: ...   Where: city, country
 
 Gates: Grade/age PASS · Citizenship PASS · Deadline PASS (in 47 days) · Logistics FLAG (...) · Budget PASS
+       (abroad: + Visa & travel PASS · Language PASS)
 Legitimacy: Established
 
 | Interest | Readiness | Value | Odds | Logistics | Overall | Bucket |

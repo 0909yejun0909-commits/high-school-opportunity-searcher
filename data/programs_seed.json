@@ -1,5 +1,5 @@
 {
- "_about": "Curated starting list of well-known US high school programs. Deadlines, costs and eligibility change every cycle: treat every field as a lead and confirm it on the official page before acting (/search does this automatically). deadline_month is the usual month the main deadline falls in (1-12), used only for sorting and early warnings.",
+ "_about": "Curated starting list of well-known programs for high school students. Deadlines, costs and eligibility change every cycle: treat every field as a lead and confirm it on the official page before acting (/search does this automatically). deadline_month is the usual month the main deadline falls in (1-12; 0 = varies/not known). grades are US-equivalent grades at the time of APPLYING (9-12); UK Year 10-13 = 9-12, Australian Year 9-12 = 9-12, Canadian grades are the same. host_country is where the program happens (ISO code, 'ABROAD' for programs held in several countries, 'ONLINE'). eligible_from lists who may apply: ISO country codes, 'EUROPE' (Europe plus Mediterranean countries), or '*' for any country; null means international eligibility has not been checked yet (assume host-country students only until verified).",
  "programs": [
   {
    "id": "rsi",
@@ -20,8 +20,12 @@
    "location": "Cambridge, MA",
    "deadline_month": 12,
    "selectivity": "extremely high",
-   "eligibility_notes": "Rising seniors; separate international nomination routes",
-   "notes": "6-week research internship; strong test scores and prior research help"
+   "eligibility_notes": "Rising seniors; separate international nomination routes. International students apply through a selection agency in their own country - contact CEE to see if your country participates; international deadline differs from the US one",
+   "notes": "6-week research internship; strong test scores and prior research help",
+   "host_country": "US",
+   "eligible_from": [
+    "*"
+   ]
   },
   {
    "id": "mit-primes",
@@ -45,7 +49,11 @@
    "deadline_month": 12,
    "selectivity": "extremely high",
    "eligibility_notes": "Main program for Boston-area students; PRIMES-USA for others (math)",
-   "notes": "Application includes a problem set"
+   "notes": "Application includes a problem set",
+   "host_country": "US",
+   "eligible_from": [
+    "US"
+   ]
   },
   {
    "id": "ssp",
@@ -66,8 +74,12 @@
    "location": "Multiple US campuses",
    "deadline_month": 2,
    "selectivity": "high",
-   "eligibility_notes": "Open only to juniors at time of applying; need-blind, meets full need",
-   "notes": "Team research project in 5-6 weeks"
+   "eligibility_notes": "Open only to juniors at time of applying; need-blind, meets full need. International applicants (outside US, not US citizen/PR) have their own, earlier deadline; need-based aid available to internationals",
+   "notes": "Team research project in 5-6 weeks",
+   "host_country": "US",
+   "eligible_from": [
+    "*"
+   ]
   },
   {
    "id": "simons-sb",
@@ -89,7 +101,11 @@
    "deadline_month": 2,
    "selectivity": "very high",
    "eligibility_notes": "Rising seniors; US citizens or permanent residents",
-   "notes": "Students join a faculty lab for ~7 weeks"
+   "notes": "Students join a faculty lab for ~7 weeks",
+   "host_country": "US",
+   "eligible_from": [
+    "US"
+   ]
   },
   {
    "id": "garcia",
@@ -112,7 +128,9 @@
    "deadline_month": 2,
    "selectivity": "high",
    "eligibility_notes": "Lab fee plus housing; states it cannot offer financial aid",
-   "notes": "Students work toward a research paper/competition entry"
+   "notes": "Students work toward a research paper/competition entry",
+   "host_country": "US",
+   "eligible_from": null
   },
   {
    "id": "mites",
@@ -133,7 +151,11 @@
    "deadline_month": 2,
    "selectivity": "very high",
    "eligibility_notes": "Rising seniors; US citizens/permanent residents; focus on students from underrepresented and underserved communities",
-   "notes": "Also MITES Semester (online) for juniors"
+   "notes": "Also MITES Semester (online) for juniors",
+   "host_country": "US",
+   "eligible_from": [
+    "US"
+   ]
   },
   {
    "id": "clark",
@@ -157,7 +179,9 @@
    "deadline_month": 2,
    "selectivity": "very high",
    "eligibility_notes": "Rising seniors (recent cycles also allowed recent graduates); age 17 by program start",
-   "notes": "7-week research in any academic area; no fees, room/board plus stipend; small application fee"
+   "notes": "7-week research in any academic area; no fees, room/board plus stipend; small application fee",
+   "host_country": "US",
+   "eligible_from": null
   },
   {
    "id": "tass",
@@ -179,8 +203,12 @@
    "location": "Varies by year",
    "deadline_month": 1,
    "selectivity": "very high",
-   "eligibility_notes": "Sophomores and juniors",
-   "notes": "Free, includes travel aid; essay-heavy application"
+   "eligibility_notes": "Sophomores and juniors. Students outside the US without a US passport must be sophomores, with a narrower birthdate window",
+   "notes": "Free, includes travel aid; essay-heavy application",
+   "host_country": "US",
+   "eligible_from": [
+    "*"
+   ]
   },
   {
    "id": "bu-rise",
@@ -201,8 +229,12 @@
    "location": "Boston, MA",
    "deadline_month": 2,
    "selectivity": "high",
-   "eligibility_notes": "Rising seniors",
-   "notes": "6-week lab internship; tuition with need-based aid"
+   "eligibility_notes": "Rising seniors; US citizens and permanent residents only (official FAQ)",
+   "notes": "6-week lab internship; tuition with need-based aid",
+   "host_country": "US",
+   "eligible_from": [
+    "US"
+   ]
   },
   {
    "id": "jax-ssp",
@@ -224,7 +256,9 @@
    "deadline_month": 2,
    "selectivity": "very high",
    "eligibility_notes": "No longer accepting high school seniors (2026 page); check age minimum",
-   "notes": "10-week independent research project; room, board and stipend"
+   "notes": "10-week independent research project; room, board and stipend",
+   "host_country": "US",
+   "eligible_from": null
   },
   {
    "id": "nih-hs-sip",
@@ -245,7 +279,11 @@
    "deadline_month": 2,
    "selectivity": "high",
    "eligibility_notes": "Age 17+ by start; US citizens/permanent residents; must live within a commuting distance of the campus",
-   "notes": "Funding and program status has changed in recent years - verify current cycle"
+   "notes": "Funding and program status has changed in recent years - verify current cycle",
+   "host_country": "US",
+   "eligible_from": [
+    "US"
+   ]
   },
   {
    "id": "simr",
@@ -269,7 +307,11 @@
    "deadline_month": 2,
    "selectivity": "very high",
    "eligibility_notes": "Age 16+; US citizens/permanent residents; local commuters",
-   "notes": "8-week lab placement"
+   "notes": "8-week lab placement",
+   "host_country": "US",
+   "eligible_from": [
+    "US"
+   ]
   },
   {
    "id": "cosmos",
@@ -295,7 +337,11 @@
    "deadline_month": 2,
    "selectivity": "high",
    "eligibility_notes": "Primarily California students",
-   "notes": "4-week cluster courses"
+   "notes": "4-week cluster courses",
+   "host_country": "US",
+   "eligible_from": [
+    "US"
+   ]
   },
   {
    "id": "ross",
@@ -317,8 +363,12 @@
    "location": "Columbus, OH / Terre Haute, IN",
    "deadline_month": 3,
    "selectivity": "high",
-   "eligibility_notes": "Ages ~15-18",
-   "notes": "Application problems required; number theory focus"
+   "eligibility_notes": "Ages ~15-18. International students welcome; attend on a visitor visa; some aid for internationals, rarely for travel",
+   "notes": "Application problems required; number theory focus",
+   "host_country": "US",
+   "eligible_from": [
+    "*"
+   ]
   },
   {
    "id": "promys",
@@ -340,8 +390,12 @@
    "location": "Boston, MA",
    "deadline_month": 3,
    "selectivity": "high",
-   "eligibility_notes": "Ages 14+",
-   "notes": "Free for many families via need-based aid; application problems"
+   "eligibility_notes": "Ages 14+. International students welcome but space is very limited; aid case by case. Students in Europe -> PROMYS Europe; India -> PROMYS India",
+   "notes": "Free for many families via need-based aid; application problems",
+   "host_country": "US",
+   "eligible_from": [
+    "*"
+   ]
   },
   {
    "id": "mathcamp",
@@ -364,8 +418,12 @@
    "location": "Varies by year",
    "deadline_month": 3,
    "selectivity": "high",
-   "eligibility_notes": "Ages 13-18",
-   "notes": "Qualifying Quiz is the main application"
+   "eligibility_notes": "Ages 13-18. Full/partial scholarships and travel grants for international students; attend on visitor status (ESTA or B-2)",
+   "notes": "Qualifying Quiz is the main application",
+   "host_country": "US",
+   "eligible_from": [
+    "*"
+   ]
   },
   {
    "id": "hcssim",
@@ -388,7 +446,9 @@
    "deadline_month": 4,
    "selectivity": "high",
    "eligibility_notes": "High school students",
-   "notes": "Application problems"
+   "notes": "Application problems",
+   "host_country": "US",
+   "eligible_from": null
   },
   {
    "id": "sumac",
@@ -408,8 +468,12 @@
    "location": "Stanford, CA / online",
    "deadline_month": 2,
    "selectivity": "high",
-   "eligibility_notes": "Current 10th-11th graders aged 15-17 on the first day",
-   "notes": "Admission test plus application"
+   "eligibility_notes": "Current 10th-11th graders aged 15-17 on the first day. Open to domestic and international students; need-based aid for both",
+   "notes": "Admission test plus application",
+   "host_country": "US",
+   "eligible_from": [
+    "*"
+   ]
   },
   {
    "id": "yygs",
@@ -432,8 +496,12 @@
    "location": "New Haven, CT",
    "deadline_month": 1,
    "selectivity": "high",
-   "eligibility_notes": "Domestic and international students; early and regular rounds",
-   "notes": "Generous need-based aid"
+   "eligibility_notes": "Domestic and international students; early and regular rounds. Accepts all countries; need-based aid for domestic and international students",
+   "notes": "Generous need-based aid",
+   "host_country": "US",
+   "eligible_from": [
+    "*"
+   ]
   },
   {
    "id": "bwsi",
@@ -456,7 +524,11 @@
    "deadline_month": 3,
    "selectivity": "high",
    "eligibility_notes": "Rising seniors; US citizens/permanent residents for most courses",
-   "notes": "Requires finishing an online prerequisite course before acceptance"
+   "notes": "Requires finishing an online prerequisite course before acceptance",
+   "host_country": "US",
+   "eligible_from": [
+    "US"
+   ]
   },
   {
    "id": "boa-student-leaders",
@@ -479,7 +551,11 @@
    "deadline_month": 1,
    "selectivity": "high",
    "eligibility_notes": "Juniors/seniors in eligible markets; legally able to work in the US",
-   "notes": "Paid summer internship at a local nonprofit"
+   "notes": "Paid summer internship at a local nonprofit",
+   "host_country": "US",
+   "eligible_from": [
+    "US"
+   ]
   },
   {
    "id": "nasa-ostem",
@@ -502,7 +578,11 @@
    "deadline_month": 2,
    "selectivity": "high",
    "eligibility_notes": "As of Oct 2026 the page requires age 18+ and a high school diploma - effectively graduating seniors; US citizens",
-   "notes": "Summer, fall and spring sessions each have their own deadline"
+   "notes": "Summer, fall and spring sessions each have their own deadline",
+   "host_country": "US",
+   "eligible_from": [
+    "US"
+   ]
   },
   {
    "id": "navy-seap",
@@ -526,7 +606,11 @@
    "deadline_month": 11,
    "selectivity": "high",
    "eligibility_notes": "US citizens; age 16+; within commuting distance of a lab",
-   "notes": "Window usually opens ~Aug; the 2027-summer cycle closes Nov 30, 2026 (verified Oct 2026). 8 weeks, ~$4,000 stipend, no housing - must live near a participating lab"
+   "notes": "Window usually opens ~Aug; the 2027-summer cycle closes Nov 30, 2026 (verified Oct 2026). 8 weeks, ~$4,000 stipend, no housing - must live near a participating lab",
+   "host_country": "US",
+   "eligible_from": [
+    "US"
+   ]
   },
   {
    "id": "aeop",
@@ -550,7 +634,11 @@
    "deadline_month": 2,
    "selectivity": "moderate",
    "eligibility_notes": "Varies by program (SEAP, HSAP, UNITE); many require US citizenship",
-   "notes": "UNITE is aimed at students underrepresented in STEM"
+   "notes": "UNITE is aimed at students underrepresented in STEM",
+   "host_country": "US",
+   "eligible_from": [
+    "US"
+   ]
   },
   {
    "id": "afrl-scholars",
@@ -573,7 +661,11 @@
    "deadline_month": 1,
    "selectivity": "high",
    "eligibility_notes": "US citizens; age 16+",
-   "notes": "Paid summer research"
+   "notes": "Paid summer research",
+   "host_country": "US",
+   "eligible_from": [
+    "US"
+   ]
   },
   {
    "id": "nist-ship",
@@ -598,7 +690,11 @@
    "deadline_month": 2,
    "selectivity": "high",
    "eligibility_notes": "US citizens; local commuters",
-   "notes": "Volunteer (unpaid) research internship"
+   "notes": "Volunteer (unpaid) research internship",
+   "host_country": "US",
+   "eligible_from": [
+    "US"
+   ]
   },
   {
    "id": "rockefeller-ssrp",
@@ -619,7 +715,11 @@
    "deadline_month": 1,
    "selectivity": "very high",
    "eligibility_notes": "Sophomores not eligible; no housing provided (NYC commuters)",
-   "notes": "Lab research with mentors"
+   "notes": "Lab research with mentors",
+   "host_country": "US",
+   "eligible_from": [
+    "US"
+   ]
   },
   {
    "id": "fred-hutch-ship",
@@ -640,7 +740,11 @@
    "deadline_month": 2,
    "selectivity": "high",
    "eligibility_notes": "Rising seniors, 16+, living in the Greater Seattle area; no housing provided; aimed at students from backgrounds underrepresented in biomedical science",
-   "notes": "8-week paid lab internship; next cycle info usually posted in November"
+   "notes": "8-week paid lab internship; next cycle info usually posted in November",
+   "host_country": "US",
+   "eligible_from": [
+    "US"
+   ]
   },
   {
    "id": "broad-bssp",
@@ -661,7 +765,11 @@
    "deadline_month": 2,
    "selectivity": "very high",
    "eligibility_notes": "Boston-area high schools (check eligible list)",
-   "notes": "Paid research in a Broad lab"
+   "notes": "Paid research in a Broad lab",
+   "host_country": "US",
+   "eligible_from": [
+    "US"
+   ]
   },
   {
    "id": "hutton",
@@ -685,7 +793,9 @@
    "deadline_month": 1,
    "selectivity": "moderate",
    "eligibility_notes": "Age 16+",
-   "notes": "Paid summer mentorship with a fisheries professional"
+   "notes": "Paid summer mentorship with a fisheries professional",
+   "host_country": "US",
+   "eligible_from": null
   },
   {
    "id": "cmu-sams",
@@ -708,7 +818,11 @@
    "deadline_month": 2,
    "selectivity": "high",
    "eligibility_notes": "US citizens/permanent residents; focus on students underrepresented in STEM",
-   "notes": "Tuition-free"
+   "notes": "Tuition-free",
+   "host_country": "US",
+   "eligible_from": [
+    "US"
+   ]
   },
   {
    "id": "cmu-ai-scholars",
@@ -729,7 +843,11 @@
    "deadline_month": 2,
    "selectivity": "very high",
    "eligibility_notes": "Juniors at time of applying, 16+ by start; US citizens/permanent residents",
-   "notes": "Free (tuition, housing, meals); deadline usually early February"
+   "notes": "Free (tuition, housing, meals); deadline usually early February",
+   "host_country": "US",
+   "eligible_from": [
+    "US"
+   ]
   },
   {
    "id": "psjp",
@@ -750,7 +868,11 @@
    "deadline_month": 2,
    "selectivity": "very high",
    "eligibility_notes": "Juniors from lower-income backgrounds",
-   "notes": "Free including travel"
+   "notes": "Free including travel",
+   "host_country": "US",
+   "eligible_from": [
+    "US"
+   ]
   },
   {
    "id": "iyws",
@@ -772,7 +894,9 @@
    "deadline_month": 2,
    "selectivity": "high",
    "eligibility_notes": "Check grade rules per session",
-   "notes": "Writing sample required"
+   "notes": "Writing sample required",
+   "host_country": "US",
+   "eligible_from": null
   },
   {
    "id": "kenyon-yw",
@@ -795,7 +919,9 @@
    "deadline_month": 3,
    "selectivity": "moderate",
    "eligibility_notes": "Ages ~16-18 (check)",
-   "notes": "Writing sample required"
+   "notes": "Writing sample required",
+   "host_country": "US",
+   "eligible_from": null
   },
   {
    "id": "nysc",
@@ -817,7 +943,9 @@
    "deadline_month": 2,
    "selectivity": "very high",
    "eligibility_notes": "Juniors/seniors; delegates chosen per state (some states run their own selection)",
-   "notes": "All-expenses-paid"
+   "notes": "All-expenses-paid",
+   "host_country": "US",
+   "eligible_from": null
   },
   {
    "id": "nsli-y",
@@ -841,7 +969,11 @@
    "deadline_month": 11,
    "selectivity": "high",
    "eligibility_notes": "US citizens; ages ~15-18",
-   "notes": "Funding status can change - verify the current cycle exists"
+   "notes": "Funding status can change - verify the current cycle exists",
+   "host_country": "ABROAD",
+   "eligible_from": [
+    "US"
+   ]
   },
   {
    "id": "girls-who-code",
@@ -864,7 +996,9 @@
    "deadline_month": 3,
    "selectivity": "moderate",
    "eligibility_notes": "Girls and non-binary students",
-   "notes": "Free virtual programs; format changes year to year"
+   "notes": "Free virtual programs; format changes year to year",
+   "host_country": "ONLINE",
+   "eligible_from": null
   },
   {
    "id": "governors-school",
@@ -885,7 +1019,11 @@
    "deadline_month": 1,
    "selectivity": "high",
    "eligibility_notes": "Residents of that state; usually school nomination",
-   "notes": "Many states run free or low-cost programs; search \"<your state> governor\\u0027s school\" and ask your counselor about nomination"
+   "notes": "Many states run free or low-cost programs; search \"<your state> governor\\u0027s school\" and ask your counselor about nomination",
+   "host_country": "US",
+   "eligible_from": [
+    "US"
+   ]
   },
   {
    "id": "usajobs-pathways",
@@ -907,7 +1045,383 @@
    "deadline_month": 0,
    "selectivity": "moderate",
    "eligibility_notes": "Usually 16+ and US citizen; enrolled students",
-   "notes": "Postings open year-round; filter for high-school-eligible"
+   "notes": "Postings open year-round; filter for high-school-eligible",
+   "host_country": "US",
+   "eligible_from": [
+    "US"
+   ]
+  },
+  {
+   "id": "weizmann-issi",
+   "name": "Dr. Bessie F. Lawrence International Summer Science Institute (ISSI)",
+   "org": "Weizmann Institute of Science",
+   "category": "research",
+   "fields": [
+    "science",
+    "physics",
+    "chemistry",
+    "biology",
+    "computer science"
+   ],
+   "url": "https://www.weizmann.ca/international-summer-science-institute/",
+   "grades": [
+    12
+   ],
+   "cost": "free",
+   "format": "residential",
+   "location": "Rehovot, Israel",
+   "host_country": "IL",
+   "eligible_from": [
+    "*"
+   ],
+   "deadline_month": 3,
+   "selectivity": "very high",
+   "eligibility_notes": "Ages 18-20: graduating seniors, gap-year students and first-year undergraduates; applications usually go through Weizmann's national friends organizations",
+   "notes": "About 4 weeks of lab research; full scholarship has covered airfare and costs - confirm the current cycle"
+  },
+  {
+   "id": "shad",
+   "name": "Shad",
+   "org": "Shad Canada",
+   "category": "summer_program",
+   "fields": [
+    "STEAM",
+    "entrepreneurship"
+   ],
+   "url": "https://www.shad.ca",
+   "grades": [
+    10,
+    11
+   ],
+   "cost": "paid_with_aid",
+   "format": "residential or virtual",
+   "location": "University campuses across Canada",
+   "host_country": "CA",
+   "eligible_from": [
+    "*"
+   ],
+   "deadline_month": 1,
+   "selectivity": "high",
+   "eligibility_notes": "Grades 10-11 (Secondaire IV-V in Quebec); Canadian and international students",
+   "notes": "Financial aid is for Canadian students only - international students pay the full fee"
+  },
+  {
+   "id": "promys-europe",
+   "name": "PROMYS Europe",
+   "org": "PROMYS Europe / University of Oxford",
+   "category": "math",
+   "fields": [
+    "math"
+   ],
+   "url": "https://promys-europe.org",
+   "grades": [
+    10,
+    11,
+    12
+   ],
+   "cost": "check",
+   "format": "residential",
+   "location": "Oxford, UK",
+   "host_country": "UK",
+   "eligible_from": [
+    "EUROPE"
+   ],
+   "deadline_month": 3,
+   "selectivity": "high",
+   "eligibility_notes": "Pre-university students aged 16+ by the start, ordinarily resident in Europe (including all countries bordering the Mediterranean)",
+   "notes": "Application problems; applications usually open in January"
+  },
+  {
+   "id": "cern-bl4s",
+   "name": "Beamline for Schools",
+   "org": "CERN (with DESY)",
+   "category": "research",
+   "fields": [
+    "physics",
+    "engineering"
+   ],
+   "url": "https://beamlineforschools.cern",
+   "grades": [
+    10,
+    11,
+    12
+   ],
+   "cost": "free",
+   "format": "team competition; winners travel to a lab",
+   "location": "CERN (Geneva) or DESY (Hamburg)",
+   "host_country": "ABROAD",
+   "eligible_from": [
+    "*"
+   ],
+   "deadline_month": 4,
+   "selectivity": "very high",
+   "eligibility_notes": "Teams of 5+ students aged 16+, with an adult coach; open worldwide",
+   "notes": "Submit a written experiment proposal and a short video; winning teams run their experiment on a real particle beam"
+  },
+  {
+   "id": "cbyx",
+   "name": "Congress-Bundestag Youth Exchange (CBYX)",
+   "org": "US Department of State / German Bundestag",
+   "category": "exchange",
+   "fields": [
+    "languages",
+    "international affairs"
+   ],
+   "url": "https://usagermanyscholarship.org",
+   "grades": [
+    10,
+    11,
+    12
+   ],
+   "cost": "free",
+   "format": "year-long exchange with host family",
+   "location": "Germany",
+   "host_country": "DE",
+   "eligible_from": [
+    "US"
+   ],
+   "deadline_month": 11,
+   "selectivity": "high",
+   "eligibility_notes": "US students aged 15 to 18.5 (as of Aug 1 of the exchange year); gap year allowed",
+   "notes": "Full scholarship for a school year in Germany; applications usually due early November"
+  },
+  {
+   "id": "yes-abroad",
+   "name": "Kennedy-Lugar YES Abroad",
+   "org": "US Department of State",
+   "category": "exchange",
+   "fields": [
+    "languages",
+    "international affairs"
+   ],
+   "url": "https://www.yes-abroad.org",
+   "grades": [
+    9,
+    10,
+    11,
+    12
+   ],
+   "cost": "free",
+   "format": "year-long exchange",
+   "location": "Countries with significant Muslim populations",
+   "host_country": "ABROAD",
+   "eligible_from": [
+    "US"
+   ],
+   "deadline_month": 12,
+   "selectivity": "very high",
+   "eligibility_notes": "US citizens aged 15-18.5; preference for students without prior exchange experience",
+   "notes": "About 60 students per year; full scholarship"
+  },
+  {
+   "id": "nysf",
+   "name": "National Youth Science Forum Year 12 Program",
+   "org": "National Youth Science Forum",
+   "category": "summer_program",
+   "fields": [
+    "science",
+    "engineering",
+    "technology",
+    "math"
+   ],
+   "url": "https://nysf.edu.au/programs/",
+   "grades": [
+    11
+   ],
+   "cost": "paid_with_aid",
+   "format": "residential",
+   "location": "Canberra / Brisbane, Australia",
+   "host_country": "AU",
+   "eligible_from": [
+    "AU"
+   ],
+   "deadline_month": 7,
+   "selectivity": "moderate",
+   "eligibility_notes": "Australian students in Year 11 when applying",
+   "notes": "Runs in January (Australian summer); Rotary clubs often help with fees"
+  },
+  {
+   "id": "uniq",
+   "name": "UNIQ Summer Schools",
+   "org": "University of Oxford",
+   "category": "summer_program",
+   "fields": [
+    "varies"
+   ],
+   "url": "https://www.uniq.ox.ac.uk",
+   "grades": [
+    11
+   ],
+   "cost": "free",
+   "format": "residential",
+   "location": "Oxford, UK",
+   "host_country": "UK",
+   "eligible_from": [
+    "UK"
+   ],
+   "deadline_month": 1,
+   "selectivity": "high",
+   "eligibility_notes": "UK state-school students in their first year of post-16 study (Year 12 England/Wales, Year 13 NI, S5 Scotland); not open to international or private-school students",
+   "notes": "Free including travel; priority for under-represented backgrounds"
+  },
+  {
+   "id": "sutton-trust",
+   "name": "Sutton Trust Summer Schools",
+   "org": "The Sutton Trust",
+   "category": "summer_program",
+   "fields": [
+    "varies"
+   ],
+   "url": "https://summerschools.suttontrust.com",
+   "grades": [
+    11
+   ],
+   "cost": "free",
+   "format": "residential",
+   "location": "Partner universities across the UK",
+   "host_country": "UK",
+   "eligible_from": [
+    "UK"
+   ],
+   "deadline_month": 3,
+   "selectivity": "moderate",
+   "eligibility_notes": "Year 12 (England/Wales), S5 (Scotland), Year 13 (NI); state-school students; widening-participation criteria",
+   "notes": "Free; subject requirements vary by university"
+  },
+  {
+   "id": "in2science",
+   "name": "In2scienceUK In2STEM",
+   "org": "In2scienceUK",
+   "category": "internship",
+   "fields": [
+    "science",
+    "engineering",
+    "technology",
+    "math"
+   ],
+   "url": "https://in2scienceuk.org",
+   "grades": [
+    11
+   ],
+   "cost": "stipend",
+   "format": "placement + online workshops",
+   "location": "Across the UK",
+   "host_country": "UK",
+   "eligible_from": [
+    "UK"
+   ],
+   "deadline_month": 4,
+   "selectivity": "moderate",
+   "eligibility_notes": "Year 12 (S5/S6 Scotland) at non-fee-paying state schools, studying a STEM subject; disadvantage criteria apply",
+   "notes": "1-2 week research/industry placements with travel and lunch bursary; applications usually open around December"
+  },
+  {
+   "id": "astar-science-award",
+   "name": "A*STAR Science Award (JC / Upper Secondary)",
+   "org": "A*STAR",
+   "category": "research",
+   "fields": [
+    "science",
+    "engineering"
+   ],
+   "url": "https://www.a-star.edu.sg/scholarships/home/student-awards",
+   "grades": [
+    9,
+    10,
+    11
+   ],
+   "cost": "stipend",
+   "format": "award + research attachment",
+   "location": "Singapore",
+   "host_country": "SG",
+   "eligible_from": [
+    "SG"
+   ],
+   "deadline_month": 0,
+   "selectivity": "high",
+   "eligibility_notes": "Singapore students; school nomination only (JC1 award includes a 5-week A*STAR research attachment)",
+   "notes": "Ask your teacher about nomination; also an Upper Secondary award for Sec 3"
+  },
+  {
+   "id": "hda-summer-internship",
+   "name": "Haus der Astronomie International Summer Internship",
+   "org": "Haus der Astronomie (Max Planck Institute for Astronomy campus)",
+   "category": "research",
+   "fields": [
+    "astronomy",
+    "astrophysics",
+    "physics",
+    "programming"
+   ],
+   "url": "https://www.haus-der-astronomie.de/en/what-we-do/internships/summer-internship",
+   "grades": [
+    11
+   ],
+   "cost": "paid",
+   "format": "in-person, 3 weeks",
+   "location": "Heidelberg, Germany",
+   "host_country": "DE",
+   "eligible_from": [
+    "*"
+   ],
+   "deadline_month": 3,
+   "selectivity": "high",
+   "eligibility_notes": "Students starting their final school year; open to any country; taught in English",
+   "notes": "No programme fee, but students pay housing, travel and living costs (help considered only after acceptance); find your own housing"
+  },
+  {
+   "id": "iayc",
+   "name": "International Astronomical Youth Camp (IAYC)",
+   "org": "International Workshop for Astronomy (IWA)",
+   "category": "research",
+   "fields": [
+    "astronomy",
+    "astrophysics"
+   ],
+   "url": "https://iayc.org",
+   "grades": [
+    10,
+    11,
+    12
+   ],
+   "cost": "paid_with_aid",
+   "format": "residential, 3 weeks",
+   "location": "Changes every year (Europe)",
+   "host_country": "ABROAD",
+   "eligible_from": [
+    "*"
+   ],
+   "deadline_month": 3,
+   "selectivity": "moderate",
+   "eligibility_notes": "Ages 16-24, any country",
+   "notes": "Own research project in a working group; need-based grants can cover the fee but not travel"
+  },
+  {
+   "id": "european-space-camp",
+   "name": "European Space Camp",
+   "org": "Andøya Space",
+   "category": "summer_program",
+   "fields": [
+    "space science",
+    "physics",
+    "engineering"
+   ],
+   "url": "https://spacecamp.no",
+   "grades": [
+    11,
+    12
+   ],
+   "cost": "free",
+   "format": "residential, 1 week",
+   "location": "Andøya, Norway",
+   "host_country": "NO",
+   "eligible_from": [
+    "*"
+   ],
+   "deadline_month": 2,
+   "selectivity": "very high",
+   "eligibility_notes": "Check the age range; places are allocated with per-country quotas (very few per country)",
+   "notes": "Accommodation and meals covered; travel mostly paid by the student (some seats include a travel allowance); applications usually open 1 January"
   }
  ]
 }
