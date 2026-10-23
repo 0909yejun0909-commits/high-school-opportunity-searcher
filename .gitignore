@@ -12,3 +12,6 @@ data/tracker.csv
 __pycache__/
 .DS_Store
 .claude/settings.local.json
+
+# Personal outreach / marketing notes
+marketing/
